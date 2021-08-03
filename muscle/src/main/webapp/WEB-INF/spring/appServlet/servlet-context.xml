@@ -23,7 +23,6 @@
 	
 	
 	<context:component-scan base-package="kr.co.muscle" />
-	<!--  -->
 	
 	<!-- 컨트롤러 찾아감!!! -->
 </beans:beans>

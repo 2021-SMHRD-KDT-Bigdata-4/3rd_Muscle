@@ -12,4 +12,5 @@ import kr.co.domain.muscleVO;
 @Mapper
 public interface muscleMapper {
    public List<muscleVO> musclevideo();
+   public String main();
 }

@@ -15,6 +15,7 @@ import kr.co.mapper.muscleMapper;
 
 
 
+
 @Controller
 public class muscleController {
    @Inject
@@ -25,6 +26,10 @@ public class muscleController {
          // TO-DO             
         List<muscleVO> list = muscleMapper.musclevideo();
          model.addAttribute("list", list);   
-       
       }
+    //메인 페이지 이동
+   @RequestMapping("/")
+   public String main() {
+	     return "main"; 
+	   }
 }

@@ -28,14 +28,17 @@ function resultHtml(data) { //data =>[{ }, { }....]
        $("#list").html(html);
      }
 </script>
-</head>`
+</head>
 <body>
+ 어영상이지롱 헿
 <table>
+
 <%-- "${vo.video}" --%>
 <c:forEach var="vo" items="${list}">
                   <div>
                   <tr>
-                     <a href = "http://127.0.0.1:8081/muscle/views/${vo.video }">수어영상이지롱 헿</a>
+                     <%-- <a href = "http://127.0.0.1:8081/muscle/views/${vo.video }">수어영상이지롱 헿</a> --%>
+                                      
                      <%-- <td><iframe><link rel="preload" href="${vo.video }" as="document"></iframe></td> --%>
                   </tr>
                   </div>
