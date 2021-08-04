@@ -32,7 +32,7 @@
 	<link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet">
 	
 	<!-- Favicon  -->
-    <link rel="icon" href="${pageContext.request.contextPath}images/favicon.png">
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/favicon.png">
 </head>
 <body>
     
@@ -76,8 +76,8 @@
       
     <!-- Header -->
     <header id="header" class="header">
-        <img class="decoration-star" src="${pageContext.request.contextPath}images/decoration-star.svg" alt="alternative">
-        <img class="decoration-star-2" src="${pageContext.request.contextPath}images/decoration-star.svg" alt="alternative">
+        <img class="decoration-star" src="${pageContext.request.contextPath}/resources/images/decoration-star.svg" alt="alternative">
+        <img class="decoration-star-2" src="${pageContext.request.contextPath}/resources/images/decoration-star.svg" alt="alternative">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 col-xl-5">
@@ -89,7 +89,7 @@
                 </div> <!-- end of col -->
                 <div class="col-lg-5 col-xl-7">
                     <div class="image-container">
-                        <img class="img-fluid" src="${pageContext.request.contextPath}images/header.png" alt="alternative">
+                        <img class="img-fluid" src="${pageContext.request.contextPath}/resources/images/header.png" alt="alternative">
                     </div> <!-- end of image-container -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -571,7 +571,7 @@
 
     <!-- Back To Top Button -->
     <button onclick="topFunction()" id="myBtn">
-        <img src="images/up-arrow.png" alt="alternative">
+        <img src="/resources/images/up-arrow.png" alt="alternative">
     </button>
     <!-- end of back to top button -->
     	
