@@ -7,6 +7,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- 스크립트 부분 -->
+<script type="text/javascript">
+function goLogin() {
+	location.href = "${cpath}/gologin.do";
+}
+function goMain() {
+	location.href = "${cpath}/main.do";
+}
+function goBoard() {
+	location.href = "${cpath}/goboard.do";
+}
+
+</script>
 </head>
 <body>
     <meta charset="utf-8">
@@ -29,23 +42,21 @@
     <title>너의 수어가 들려</title>
     
     <!-- Styles -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/fontawesome-all.min.css" rel="stylesheet">
-    <link href="css/swiper.css" rel="stylesheet">
-	<link href="css/styles.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/swiper.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet">
 	
 	<!-- Favicon  -->
-    <link rel="icon" href="images/favicon.png">
-</head>
-<body>
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/favicon.png">
     
     <!-- Navigation -->
     <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-light" aria-label="Main navigation">
         <div class="container">
 
             <!-- Image Logo -->
-            <a class="navbar logo-image" href="main.jsp"><img src="images/logogeunjo.PNG" alt="alternative"></a> 
+            <a class="navbar logo-image" onclick="goMain()"><img src="${pageContext.request.contextPath}/resources/images/logogeunjo.PNG" alt="alternative"></a> 
 	
             <!-- Text Logo - Use this if you don't have a graphic logo -->
             <!-- <a class="navbar-brand logo-text" href="index.html">Yavin</a> -->
@@ -57,10 +68,10 @@
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ms-auto navbar-nav-scroll">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="main.jsp">메인</a>
+                        <a class="nav-link active" aria-current="page" onclick="goMain()">메인</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="muscleBoardList.jsp">자유게시판</a>
+                        <a class="nav-link" onclick="goBoard()">자유게시판</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#projects">수어 음성번역 서비스</a>
@@ -71,7 +82,7 @@
                     </li>
                 </ul>
                 <span class="nav-item">
-                    <a class="btn-outline-sm" href="login.jsp">로그인</a>
+                    <a class="btn-outline-sm" onclick="goLogin()">로그인</a>
                 </span>
             </div> <!-- end of navbar-collapse -->
         </div> <!-- end of container -->
@@ -79,7 +90,7 @@
     <!-- end of navigation -->
 <!-- Header -->
     <header id="header" class="header">
-        <img class="decoration-star" src="images/decoration-star.svg" alt="alternative">
+        <img class="decoration-star" src="${pageContext.request.contextPath}/resources/images/decoration-star.svg" alt="alternative">
         <div class="panel-body">
           	<h4>자유게시판</h4>
   		<table class="table table-bordered table-hover">
@@ -93,7 +104,7 @@
 		</tr>
 	</table>
     </div>
-        <img class="decoration-star-2" src="images/decoration-star.svg" alt="alternative">
+        <img class="decoration-star-2" src="${pageContext.request.contextPath}/resources/images/decoration-star.svg" alt="alternative">
         </header>
           	
         

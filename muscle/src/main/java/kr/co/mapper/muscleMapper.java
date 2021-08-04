@@ -13,4 +13,8 @@ import kr.co.domain.muscleVO;
 public interface muscleMapper {
    public List<muscleVO> musclevideo();
    public String main();
+   public String gologin();
+   public String gomain();
+   public String gojoin();
+   public String goboard();
 }
