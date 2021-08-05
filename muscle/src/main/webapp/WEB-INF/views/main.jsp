@@ -5,6 +5,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -44,6 +47,17 @@
     function goBoard() {
     	location.href = "${cpath}/goboard.do";
 	}
+    function logout() {
+ 	   $.ajax({
+ 	      url : "${cpath}/logout.do",
+ 	      type:"get",
+ 	      success : function(){
+ 	         alert("로그아웃되었습니다.")
+ 	         location.href="${cpath}/main.do";
+ 	      },
+ 	      error : function(){alert("error");}
+ 	   });
+ 	}
     
     </script>
 
@@ -63,7 +77,7 @@
             <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
+         	
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ms-auto navbar-nav-scroll">
                     <li class="nav-item">
@@ -82,9 +96,19 @@
                         <!--  <a class="nav-link">수어 백과사전</a>-->
                     </li>
                 </ul>
-                <span class="nav-item">
+                <c:if test="${userVO == null}">
+	            <span class="nav-item">
                     <a class="btn-outline-sm" onclick="goLogin()">로그인</a>
+                </span>   
+         	    </c:if>
+         	    <c:if test="${userVO != null }">
+         	    <span class="nav-item">
+         	    	${userVO.name}님 환영합니다.
+                    <a class="btn-outline-sm" onclick="">마이페이지</a>
+                    <button class="btn-outline-sm" onclick="logout()">로그아웃</button>
                 </span>
+         	    </c:if>
+                
             </div> <!-- end of navbar-collapse -->
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
