@@ -109,6 +109,8 @@
         <img class="decoration-star" src="${pageContext.request.contextPath}/resources/images/decoration-star.svg" alt="alternative">
         <img class="decoration-star-2" src="${pageContext.request.contextPath}/resources/images/decoration-star.svg" alt="alternative">
         </header>
+        
+        <!-- 검색버튼 여기임! -->
 		<form method="post">
 		<input type="text" name="word" id="word">
 		<button type="button" onclick="dic()">검색</button>
@@ -116,14 +118,7 @@
 		</form>
 
 
-	<!-- value="${vo.word}" -->
-
-	<%-- <h3>${vo.word }</h3>
-	--%>
-	<!-- <video width="500px" height="500px" controls
-		src= "http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0001_REAL01_F.mp4">
-	</video> -->
-
+	
 
 </body>
 </html>
