@@ -33,8 +33,6 @@
 	
 	<!-- Favicon  -->
     <link rel="icon" href="${pageContext.request.contextPath}/resources/images/favicon.png">
-<<<<<<< HEAD
-=======
     <!-- 스크립트 부분 -->
     <script type="text/javascript">
     function goLogin() {
@@ -48,7 +46,7 @@
 	}
     
     </script>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-4/3rd_Muscle.git
+
 </head>
 <body>
     
@@ -78,11 +76,10 @@
                         <a class="nav-link" href="#projects">수어 음성번역 서비스</a>
                     </li>
                     <li class="nav-item">
-<<<<<<< HEAD
+
                         <a class="nav-link" href="musclevideo.do">수어 백과사전</a>
-=======
-                        <a class="nav-link">수어 백과사전</a>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-4/3rd_Muscle.git
+
+                        <!--  <a class="nav-link">수어 백과사전</a>-->
                     </li>
                 </ul>
                 <span class="nav-item">
