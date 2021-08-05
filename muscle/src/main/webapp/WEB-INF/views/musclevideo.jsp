@@ -38,6 +38,7 @@
 	<!-- Favicon  -->
     <link rel="icon" href="${pageContext.request.contextPath}/resources/images/favicon.png">
 <script type="text/javascript">
+	// 백과사전 검색한 단어 가지고 컨트롤러로 간 후 단어이름과 영상을 반환
 	function dic() {
 		var word = $("#word").val();
 		$.ajax({
@@ -53,7 +54,7 @@
 		});
 	}
 	
-
+	// dic()함수가 성공하면 html을 띄워줌
 	function resultHtml(obj) {
 		//alert(JSON.stringify(data));   json 문자열로 출력
 		var html = "<h3>" + obj.word +"</h3>";
@@ -109,6 +110,8 @@
         <img class="decoration-star" src="${pageContext.request.contextPath}/resources/images/decoration-star.svg" alt="alternative">
         <img class="decoration-star-2" src="${pageContext.request.contextPath}/resources/images/decoration-star.svg" alt="alternative">
         </header>
+        
+        
         
         <!-- 검색버튼 여기임! -->
 		<form method="post">

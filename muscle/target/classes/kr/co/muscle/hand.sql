@@ -8,7 +8,7 @@ SET foreign_key_checks = 1;
 
 
 
-
+-- 사용자 테이블
 create table tbl_user(
    id varchar(30) not null,
    pw varchar(30) not null,
@@ -16,12 +16,13 @@ create table tbl_user(
    tel varchar(30) not null, 
    primary key(id)
 );
+
 select * from user;
 -- 테이블명 보여줌
 show tables;
 
 
-
+--게시판 테이블
 create table board_tbl(
    idx_b int not null auto_increment,
    title varchar(300) not null,
@@ -31,9 +32,12 @@ create table board_tbl(
    FOREIGN KEY (id) REFERENCES tbl_user (id)
 );
 
+-- 테이블 안의 내용 다 지움
 truncate board_tbl;
 
 
+
+-- 댓글 테이블
 create table comment_tbl(
    idx_c int not null auto_increment,
    comment varchar(1000) not null,
@@ -46,7 +50,7 @@ select * from dic_tbl;
 
 
 
-
+-- 사전 테이블
 create table dic_tbl(
    idx_d int not null auto_increment,
    word varchar(300) not null,
@@ -62,6 +66,7 @@ commit;
 -- 테이블 안에 있는 값 다 삭제
 TRUNCATE dic_tbl;
 -- C:\Users\21SMT64\Desktop\004.수어_영상_sample\원시데이터
+-- 백과사전테이블 데이터 삽입
 insert into dic_tbl(word, video) values('왼쪽', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0001_REAL01_F.mp4');
 insert into dic_tbl(word, video) values('ㅎ[ㄹ,ㄹ르', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0002_REAL01_F.mp4');
 insert into dic_tbl(word, video) values('오른쪽', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0003_REAL01_F.mp4');

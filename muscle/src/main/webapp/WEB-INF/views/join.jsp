@@ -9,11 +9,11 @@
   <title>너의 수어가 들려</title>
     
     <!-- Styles -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/fontawesome-all.min.css" rel="stylesheet">
-    <link href="css/swiper.css" rel="stylesheet">
-	<link href="css/styles.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/swiper.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet">
 	<style type="text/css">
 	 <style type="text/css">
     *{
@@ -106,12 +106,23 @@ body {
     
     
     </style>
+    <!-- 스크립트 부분 -->
+    <script type="text/javascript">
+    function goMain() {
+    	location.href = "${cpath}/main.do";
+	}
+    function goLogin() {
+    	location.href = "${cpath}/gologin.do";
+	}
+    function goBoard() {
+    	location.href = "${cpath}/goboard.do";
+	}
+    </script>
   </head>
 	
-	</style>
 	
 	<!-- Favicon  -->
-    <link rel="icon" href="images/favicon.png">
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/favicon.png">
 </head>
 <body>
     
@@ -120,7 +131,7 @@ body {
         <div class="container">
 
             <!-- Image Logo -->
-            <a class="navbar logo-image" href="main.jsp"><img src="images/logogeunjo.PNG" alt="alternative"></a> 
+            <a class="navbar logo-image" onclick="goMain()"><img src="${pageContext.request.contextPath}/resources/images/logogeunjo.PNG" alt="alternative"></a> 
 	
             <!-- Text Logo - Use this if you don't have a graphic logo -->
             <!-- <a class="navbar-brand logo-text" href="index.html">Yavin</a> -->
@@ -132,10 +143,10 @@ body {
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ms-auto navbar-nav-scroll">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="main.jsp">메인</a>
+                        <a class="nav-link active" aria-current="page" onclick="goMain()">메인</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="muscleBoardList.jsp">자유게시판</a>
+                        <a class="nav-link" onclick="goBoard()">자유게시판</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#projects">수어 음성번역 서비스</a>
@@ -150,8 +161,8 @@ body {
     <!-- end of navigation -->
      <!-- Header -->
     <header id="header" class="header">
-        <img class="decoration-star" src="images/decoration-star.svg" alt="alternative">
-        <img class="decoration-star-2" src="images/decoration-star.svg" alt="alternative">
+        <img class="decoration-star" src="${pageContext.request.contextPath}/resources/images/decoration-star.svg" alt="alternative">
+        <img class="decoration-star-2" src="${pageContext.request.contextPath}/resources/images/decoration-star.svg" alt="alternative">
         <!-- end of container -->
     </header>
  <body width="100%" height="100%">
@@ -176,7 +187,7 @@ body {
       
       <button type="subbmit" class="btn"><a href="main.jsp">회원가입</a></button>
       <div class="bottomText">
-        	기존 아이디가 있으신가요? <a href="login.jsp">로그인</a>
+        	기존 아이디가 있으신가요? <a onclick="goLogin()">로그인</a>
       </div>
     </form>
     </body>

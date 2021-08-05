@@ -33,6 +33,22 @@
 	
 	<!-- Favicon  -->
     <link rel="icon" href="${pageContext.request.contextPath}/resources/images/favicon.png">
+<<<<<<< HEAD
+=======
+    <!-- 스크립트 부분 -->
+    <script type="text/javascript">
+    function goLogin() {
+    	location.href = "${cpath}/gologin.do";
+	}
+    function goMain() {
+    	location.href = "${cpath}/main.do";
+	}
+    function goBoard() {
+    	location.href = "${cpath}/goboard.do";
+	}
+    
+    </script>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-4/3rd_Muscle.git
 </head>
 <body>
     
@@ -41,7 +57,7 @@
         <div class="container">
 
             <!-- Image Logo -->
-            <a class="navbar logo-image" href="main.jsp"><img src="${pageContext.request.contextPath}/resources/images/logogeunjo.PNG" alt="alternative"></a> 
+            <a class="navbar logo-image" onclick="goMain()"><img src="${pageContext.request.contextPath}/resources/images/logogeunjo.PNG" alt="alternative"></a> 
 	
             <!-- Text Logo - Use this if you don't have a graphic logo -->
             <!-- <a class="navbar-brand logo-text" href="index.html">Yavin</a> -->
@@ -53,20 +69,24 @@
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ms-auto navbar-nav-scroll">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="main.jsp">메인</a>
+                        <a class="nav-link active" aria-current="page" onclick="goMain()">메인</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="muscleBoardList.jsp">자유게시판</a>
+                        <a class="nav-link" onclick="goBoard()">자유게시판</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#projects">수어 음성번역 서비스</a>
                     </li>
                     <li class="nav-item">
+<<<<<<< HEAD
                         <a class="nav-link" href="musclevideo.do">수어 백과사전</a>
+=======
+                        <a class="nav-link">수어 백과사전</a>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-4/3rd_Muscle.git
                     </li>
                 </ul>
                 <span class="nav-item">
-                    <a class="btn-outline-sm" href="login.jsp">로그인</a>
+                    <a class="btn-outline-sm" onclick="goLogin()">로그인</a>
                 </span>
             </div> <!-- end of navbar-collapse -->
         </div> <!-- end of container -->
@@ -571,7 +591,7 @@
 
     <!-- Back To Top Button -->
     <button onclick="topFunction()" id="myBtn">
-        <img src="images/up-arrow.png" alt="alternative">
+        <img src="/resources/images/up-arrow.png" alt="alternative">
     </button>
     <!-- end of back to top button -->
     	

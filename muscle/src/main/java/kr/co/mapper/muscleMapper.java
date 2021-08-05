@@ -14,5 +14,9 @@ public interface muscleMapper {
   
    public muscleVO musclevideoAjax(String word);
    public String main();
-     
+   public String gologin();
+   public String gomain();
+   public String gojoin();
+   public String goboard();
+
 }
