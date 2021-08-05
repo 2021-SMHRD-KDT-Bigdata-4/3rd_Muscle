@@ -16,6 +16,8 @@ create table tbl_user(
    tel varchar(30) not null, 
    primary key(id)
 );
+insert into tbl_user values('coco','1234','채채','1234-1234')
+
 
 select * from user;
 -- 테이블명 보여줌

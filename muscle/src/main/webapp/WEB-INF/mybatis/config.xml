@@ -4,7 +4,6 @@
 <configuration>
     <typeAliases>
       <typeAlias type="kr.co.domain.muscleVO" alias="muscleVO" />
-      <!-- <typeAlias type="kr.smhrd.domain.MinVO" alias="MinVO" />
-      <typeAlias type="kr.smhrd.domain.SearchVO" alias="searchVO" /> -->
+      <typeAlias type="kr.co.domain.userVO" alias="userVO" />
    </typeAliases> 
 </configuration>

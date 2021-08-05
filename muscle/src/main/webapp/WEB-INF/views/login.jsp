@@ -117,6 +117,8 @@ body {
     function goBoard() {
     	location.href = "${cpath}/goboard.do";
 	}
+    
+   
     </script>
   </head>
 	
@@ -165,15 +167,15 @@ body {
         <!-- end of container -->
     </header>
  <body width="100%" height="100%">
-    <form action="main.html" method="post" class="loginForm">
+    <form  method="post" class="loginForm">
       <h2>Login</h2>
       <div class="idForm">
-        <input type="text" class="id" placeholder="ID">
+        <input type="text" class="id" placeholder="ID" name="id">
       </div>
       <div class="passForm">
-        <input type="password" class="pw" placeholder="PW">
+        <input type="password" class="pw" placeholder="PW" name="pw">
       </div>
-      <button type="subbmit" class="btn">로그인</a></button>
+      <button type="submit" class="btn" onclick="${cpath}/login.do">로그인</a></button>
       <div class="bottomText">
         	계정이 없으신가요? <a onclick="goJoin()">회원가입</a>
       </div>

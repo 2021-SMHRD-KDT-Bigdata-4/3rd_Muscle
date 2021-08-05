@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.domain.muscleVO;
+import kr.co.domain.userVO;
 import kr.co.mapper.muscleMapper;
 
 @Controller
@@ -28,6 +29,13 @@ public class muscleController {
 		muscleVO vo = muscleMapper.musclevideoAjax(word);
 		return vo;
 	}
+	@RequestMapping("/login.do")
+	public String login(Model model, userVO vo) {
+		userVO uservo = muscleMapper.login(vo);
+		model.addAttribute("uservo", uservo);    // addAttribute: session
+		return "main";
+	}
+	
 
 	/*
 	 * @RequestMapping("/musclevideoAjax.do") public @ResponseBody List<muscleVO>

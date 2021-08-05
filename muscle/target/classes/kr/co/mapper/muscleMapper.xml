@@ -6,4 +6,9 @@
    <select id="musclevideoAjax" resultType="muscleVO">  <!-- 백과사전 단어 검색 해주고 영상 가져옴  -->
       select word,video from dic_tbl where word like CONCAT('%',#{word},'%')
    </select>
+   
+   <select id="login" resultType="userVO">
+       select * from tbl_user where id=#{id} and pw=#{pw}
+   </select>
+   
 </mapper>
