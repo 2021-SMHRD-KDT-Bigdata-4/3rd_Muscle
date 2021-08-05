@@ -14,14 +14,13 @@ import kr.co.domain.userVO;
 public interface muscleMapper {
   
 	
-   public muscleVO musclevideoAjax(String word);
-   
-   public String main();
-   public String gologin();
-   public String gomain();
+   public muscleVO musclevideoAjax(String word);     //단어검색 후 영상
+    
+   public String main();        
+   public String gologin();     
+   public String gomain();     
    public String gojoin();
    public String goboard();
-   
-   public userVO login(userVO vo);
- 
+   public userVO login(userVO vo);   
+   public String logout();
 }

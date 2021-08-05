@@ -3,6 +3,8 @@ package kr.co.muscle;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,10 +31,30 @@ public class muscleController {
 		muscleVO vo = muscleMapper.musclevideoAjax(word);
 		return vo;
 	}
+	/*
+	 * @RequestMapping("/login.do") public String login(Model model, userVO vo) {
+	 * userVO uservo = muscleMapper.login(vo); model.addAttribute("uservo", uservo);
+	 * // addAttribute: session return "main"; }
+	 */
 	@RequestMapping("/login.do")
-	public String login(Model model, userVO vo) {
+	public String login(userVO vo, HttpServletRequest request) {
 		userVO uservo = muscleMapper.login(vo);
-		model.addAttribute("uservo", uservo);    // addAttribute: session
+		System.out.println(uservo.getId());
+		if (uservo != null) {
+		HttpSession session = request.getSession();
+		session.setAttribute("userVO", uservo);
+		}else {
+			HttpSession session = request.getSession(); 
+			session.setAttribute("msg", "사용자 정보가 올바르지 않습니다.");
+		}
+		//세션을 가져올때 model을 사용하면 너무 복잡해서 그냥 이거 생성해서 세션을 가져오거나 생성해주는 조건문을 주고
+		//model.addAttribute("uservo", uservo);    // addAttribute: session
+		return "main";
+	}
+	@RequestMapping("/logout.do")
+	public String logout(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.invalidate();
 		return "main";
 	}
 	
