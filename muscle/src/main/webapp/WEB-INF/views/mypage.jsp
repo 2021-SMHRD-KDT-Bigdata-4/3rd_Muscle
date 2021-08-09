@@ -14,6 +14,9 @@
     <link href="${pageContext.request.contextPath}/resources/css/fontawesome-all.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/css/swiper.css" rel="stylesheet">
 	<link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet">
+	
+	
+	
 	<style type="text/css">
 	 <style type="text/css">
     *{
@@ -112,31 +115,7 @@ body {
     
     </style>
     <!-- 스크립트 부분 -->
-    <script type="text/javascript">
-    function goMain() {
-    	location.href = "${cpath}/main.do";
-	}
-    function goLogin() {
-    	location.href = "${cpath}/gologin.do";
-	}
-    function goBoard() {
-    	location.href = "${cpath}/goboard.do";
-	}
-    function goMypage() {
-    	location.href = "${cpath}/gomypage.do";
-	}
-    function logout() {
- 	   $.ajax({
- 	      url : "${cpath}/logout.do",
- 	      type:"get",
- 	      success : function(){
- 	         alert("로그아웃되었습니다.")
- 	         location.href="${cpath}/main.do";
- 	      },
- 	      error : function(){alert("error");}
- 	   });
- 	}
-    </script>
+
   </head>
 	
 	
@@ -176,7 +155,7 @@ body {
                 </ul>
                 <c:if test="${userVO == null}">
 	            <span class="nav-item">
-                    <a class="btn-outline-sm" onclick="goLogin()">로그인</a>
+                    <a class="btn-outline-sm" href="gologin.do">로그인</a>
                 </span>   
          	    </c:if>
          	    <c:if test="${userVO != null }">
@@ -262,4 +241,17 @@ body {
 
      
 </body>
+<script type="text/javascript">
+    function logout() {
+        $.ajax({
+           url : "${cpath}/logout.do",
+           type:"get",
+           success : function(){
+              alert("로그아웃되었습니다.")
+              location.href="${cpath}/main.do";
+           },
+           error : function(){alert("error");}
+        });
+     }
+    </script>
       </html>

@@ -130,7 +130,8 @@ public class muscleController {
    public String boardInsert(userVO vo) {  // 파라메터수집(자동) -> new BoardVO();
 	   System.out.println("여긴 컨트롤러, 컨트롤러 까지 들어옴");
 	   muscleMapper.boardInsert(vo);
-	   return "muscleBoardList";
+	   return "redirect:/muscleBoardList.do";
+	   
    }
    
 }

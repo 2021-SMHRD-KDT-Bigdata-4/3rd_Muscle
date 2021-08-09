@@ -89,8 +89,8 @@
    // dic()함수가 성공하면 html을 띄워줌
    function resultHtml(obj) {
       //alert(JSON.stringify(data));   json 문자열로 출력
-      var html = "<h3>" + obj.word + "</h3>";
-      html += "<video width='800px' height='500px' controls src="+obj.video+">";
+      //var html = "<h3>" + obj.word + "</h3>";
+      var html = "<video width='800px' height='500px' autoplay controls src="+obj.video+">";
       html += "</video>";
       $("#list").html(html);
    }
@@ -102,7 +102,7 @@
   transform: translateX(-50%);
 }
 .button{
-	background-color:#33bdef;
+   background-color:#33bdef;
     width:102px;
     height:42px;
 }

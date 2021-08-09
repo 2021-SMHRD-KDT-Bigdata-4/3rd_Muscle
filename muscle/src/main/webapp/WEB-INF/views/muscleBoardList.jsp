@@ -159,7 +159,7 @@ function muscleBoardForm() {
             </ul>
             <c:if test="${userVO == null}">
                <span class="nav-item"> <a class="btn-outline-sm"
-                  href="login.do">로그인</a>
+                  href="gologin.do">로그인</a>
                </span>
             </c:if>
 

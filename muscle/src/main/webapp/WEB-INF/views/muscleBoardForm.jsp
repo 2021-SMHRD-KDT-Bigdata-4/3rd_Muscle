@@ -114,7 +114,7 @@
 
 					<label for="title">제목</label>
 
-					<input type="text" class="form-control" name="title" name="title"  id = title placeholder="제목을 입력해 주세요">
+					<input type="text" class="form-control" name="title" name="title"  placeholder="제목을 입력해 주세요">
 
 				</div>
 
@@ -124,7 +124,7 @@
 
 					<label for="reg_id">작성자</label>
 
-				    <textarea class="form-control" rows="1" readonly="readonly" id="title" name="id">${userVO.name}</textarea>
+				    <textarea class="form-control" rows="1" readonly="readonly" name="id">${userVO.id}</textarea>
 
 				</div>
 
@@ -134,14 +134,14 @@
 
 					<label for="content">내용</label>
 
-					<textarea class="form-control" rows="5" name="content" id="content" name="content" placeholder="내용을 입력해 주세요" ></textarea>
+					<textarea class="form-control" rows="5" name="content"  placeholder="내용을 입력해 주세요" ></textarea>
 
 				</div>
 
 			<div>
 
 				<input type="submit" class="btn btn-primary btn-sm" value="저장"> 
-                <button type="button" class="btn btn-sm btn-primary" id="btnList" onclick="goboard()">글쓰기 취소</button>
+                <button type="button" class="btn btn-sm btn-primary" id="btnList" href="boardInsert.do">글쓰기 취소</button>
 
 			</div>
 
