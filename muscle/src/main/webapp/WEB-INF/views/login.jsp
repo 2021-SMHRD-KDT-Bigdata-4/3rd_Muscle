@@ -29,7 +29,7 @@
 	rel="stylesheet">
 <style type="text/css">
 <
-style type ="text /css ">* {
+style type ="text /css "> * {
 	margin: 0px;
 	padding: 0px;
 	text-decoration: none;
@@ -119,26 +119,11 @@ body {
 <!-- 스크립트 부분 -->
 <script type="text/javascript">
     $(document).ready(()=>{
-   	 <c:if test="${ !empty sessionScope.uservo}">    
-   	 	alert("${sessionScope.uservo}");
-   	 	<c:remove var="uservo"/>    //속성을 삭제할때 쓰는것 setAttribute가 되어있는 변수mag를 삭제
-   	 </c:if>
-     });
-    
-    function goMain() {
-    	location.href = "${cpath}/main.do";
-	}
-    function goJoin() {
-    	location.href = "${cpath}/gojoin.do";
-	}
-    function goBoard() {
-    	location.href = "${cpath}/goboard.do";
-	}
-    function out() {
-    	location.href="${cpath}/logout.do";
-    }
-    
-   
+       <c:if test="${ !empty sessionScope.uservo}">    
+          alert("${sessionScope.uservo}");
+          <c:remove var="uservo"/>    //속성을 삭제할때 쓰는것 setAttribute가 되어있는 변수mag를 삭제
+       </c:if>
+     });   
     </script>
 </head>
 
@@ -170,13 +155,11 @@ body {
 				id="navbarsExampleDefault">
 				<ul class="navbar-nav ms-auto navbar-nav-scroll">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" onclick="goMain()"">메인</a></li>
-					<li class="nav-item"><a class="nav-link" onclick="goBoard()">자유게시판</a>
+						aria-current="page" href="main">메인</a></li>
+					<li class="nav-item"><a class="nav-link" href="index.do">수어 음성번역 서비스</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#projects">수어
-							음성번역 서비스</a></li>
-					<li class="nav-item"><a class="nav-link"
-						onclick="musclevideo.do">수어 백과사전</a></li>
+					<li class="nav-item"><a class="nav-link" href="musclevideo.do">수어 백과사전</a></li>
+					<li class="nav-item"><a class="nav-link" href="muscleBoardList.do">자유게시판</a></li>
 				</ul>
 			</div>
 			<!-- end of navbar-collapse -->
@@ -196,24 +179,20 @@ body {
 	</header>
 <body width="100%" height="100%">
 
-		<form action="${cpath}/login.do" method="post" class="loginForm">
-			<h2>Login</h2>
-			<div class="idForm">
-				<input type="text" class="id" placeholder="ID" name="id">
-			</div>
-			<div class="passForm">
-				<input type="password" class="pw" placeholder="PW" name="pw">
-			</div>
-			<button type="submit" class="btn">로그인</button>
-			<div class="bottomText">
-				계정이 없으신가요? <a onclick="goJoin()">회원가입</a>
-			</div>
-		</form>
-		
-	<%-- <c:if test="${sessionScope.userVO!=null}"> 
-				${sessionScope.userVO.name()}님 환영합니다.
-				<button type="button" class="btn">로그아웃</button>
-	</c:if> --%>
+	<form action="${cpath}/login.do" method="post" class="loginForm">
+		<h2>Login</h2>
+		<div class="idForm">
+			<input type="text" class="id" placeholder="ID" name="id">
+		</div>
+		<div class="passForm">
+			<input type="password" class="pw" placeholder="PW" name="pw">
+		</div>
+		<button type="submit" class="btn">로그인</button>
+		<div class="bottomText">
+			계정이 없으신가요? <a href="join.do">회원가입</a>
+		</div>
+	</form>
+
 
 </body>
 </html>

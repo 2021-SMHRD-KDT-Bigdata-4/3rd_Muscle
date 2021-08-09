@@ -6,16 +6,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-  <title>너의 수어가 들려</title>
-    
+  <title>너의 수어가 들려</title>    
     <!-- Styles -->
     <link href="${pageContext.request.contextPath}/resources/https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/css/fontawesome-all.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/css/swiper.css" rel="stylesheet">
-	<link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet">
-	<style type="text/css">
-	 <style type="text/css">
+   <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet">
+   <style type="text/css">
+    <style type="text/css">
     *{
   margin: 0px;
   padding: 0px;
@@ -102,26 +101,74 @@ body {
 
 .bottomText {
   text-align: center;
-}
-    
-    
+}   
     </style>
     <!-- 스크립트 부분 -->
     <script type="text/javascript">
-    function goMain() {
-    	location.href = "${cpath}/main.do";
-	}
-    function goLogin() {
-    	location.href = "${cpath}/gologin.do";
-	}
-    function goBoard() {
-    	location.href = "${cpath}/goboard.do";
-	}
+    $(document).ready(function(){
+		// 취소
+		$(".cencle").on("click", function(){
+			
+			location.href = "/login.do";
+					    
+		})
+	
+		$("#submit").on("click", function(){
+			if($("#id").val()==""){
+				alert("아이디를 입력해주세요.");
+				$("#id").focus();
+				return false;
+			}
+			if($("#pw").val()==""){
+				alert("비밀번호를 입력해주세요.");
+				$("#pw").focus();
+				return false;
+			}
+			if($("#name").val()==""){
+				alert("성명을 입력해주세요.");
+				$("#name").focus();
+				return false;
+			}
+			if($("#tel").val()==""){
+				alert("전화번호를 입력해주세요.");
+				$("#tel").focus();
+				return false;
+			}
+			   var p = document.getElementById('pw').value;
+		       var p1 = document.getElementById('pwconfirm').value;
+		       
+		       if( p != p1 ) {
+		            alert("비밀번호가 일치하지 않습니다.");
+		            return false;
+		          } else{
+		             var formData = $("#join").serialize();
+		            $.ajax({
+		               url : "join.do",
+		               type : "post",
+		               data : formData,
+		               success : function(data) {
+		                  //alert(data);
+		                  if (data == "NO") {
+		                     alert("회원가입에 실패했습니다.");
+		                  } else {
+		                     alert("회원가입에 성공했습니다.");
+		                     location.href = "gologin.do"; // 메인화면으로...
+		                  }
+		               },
+		               error : function() {
+		                  alert("error");
+		               }
+		            
+		            });
+		            return true;
+		          }
+		});
+		
+			
+		
+	})
     </script>
-  </head>
-	
-	
-	<!-- Favicon  -->
+   <!-- Favicon  -->
     <link rel="icon" href="${pageContext.request.contextPath}/resources/images/favicon.png">
 </head>
 <body>
@@ -131,8 +178,8 @@ body {
         <div class="container">
 
             <!-- Image Logo -->
-            <a class="navbar logo-image" onclick="goMain()"><img src="${pageContext.request.contextPath}/resources/images/logogeunjo.PNG" alt="alternative"></a> 
-	
+            <a class="navbar logo-image" href="main.do"><img src="${pageContext.request.contextPath}/resources/images/logogeunjo.PNG" alt="alternative"></a> 
+   
             <!-- Text Logo - Use this if you don't have a graphic logo -->
             <!-- <a class="navbar-brand logo-text" href="index.html">Yavin</a> -->
 
@@ -143,16 +190,16 @@ body {
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ms-auto navbar-nav-scroll">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" onclick="goMain()">메인</a>
+                        <a class="nav-link active" aria-current="page" href="main.do">메인</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" onclick="goBoard()">자유게시판</a>
+                        <a class="nav-link" href="index.do">수어 음성번역 서비스</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#projects">수어 음성번역 서비스</a>
+                        <a class="nav-link" href="musclevideo.do">수어 백과사전</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#projects">수어 백과사전</a>
+                        <a class="nav-link" href="muscleBoardList.do">자유게시판</a>
                     </li>
                 </ul>
             </div> <!-- end of navbar-collapse -->
@@ -166,28 +213,28 @@ body {
         <!-- end of container -->
     </header>
  <body width="100%" height="100%">
-    <form action="main.html" method="post" class="loginForm">
+    <form action="gologin.do" method="post" class="loginForm">
       <h2>회원가입</h2>
       <div class="idForm">
-        <input type="text" class="id" placeholder="아이디">
+        <input type="text" class="id" placeholder="아이디" name="id">
       </div>
       <div class="passForm">
-        <input type="password" class="pw" placeholder="비밀번호">
+        <input type="password" class="pw" placeholder="비밀번호" name="pw">
       </div>
        <div class="passForm">
-        <input type="password" class="pw" placeholder="비밀번호 확인">
+        <input type="password" class="pw" placeholder="비밀번호 확인" name="pwconfirm">
       </div>
        <div class="passForm">
-        <input type="text" class="pw" placeholder="이름">
+        <input type="text" class="pw" placeholder="이름" name="name"> 
       </div>
       <div class="passForm">
-        <input type="tel" class="pw" placeholder="전화번호">
+        <input type="tel" class="pw" placeholder="전화번호" name="tel">
       </div>
       
       
-      <button type="subbmit" class="btn"><a href="main.jsp">회원가입</a></button>
+      <button type="submit" class="btn">회원가입</button>
       <div class="bottomText">
-        	기존 아이디가 있으신가요? <a onclick="goLogin()">로그인</a>
+           기존 아이디가 있으신가요? <a href="gologin.do">로그인</a>
       </div>
     </form>
     </body>

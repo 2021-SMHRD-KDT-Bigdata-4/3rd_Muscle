@@ -19,7 +19,7 @@ create table tbl_user(
 insert into tbl_user values('coco','1234','채채','1234-1234')
 
 
-select * from user;
+select * from tbl_user;
 -- 테이블명 보여줌
 show tables;
 
@@ -33,6 +33,10 @@ create table board_tbl(
    primary key(idx_b),
    FOREIGN KEY (id) REFERENCES tbl_user (id)
 );
+
+insert into board_tbl(title, content,id) values('안녕', '나는 대교짱짱맨','admin');
+insert into board_tbl(title, content,id) values('안녕2', '나는 대교짱짱맨','admin');
+insert into board_tbl(title, content,id) values('안녕3', '나는 대교짱짱맨','coco');
 
 -- 테이블 안의 내용 다 지움
 truncate board_tbl;
@@ -48,7 +52,7 @@ create table comment_tbl(
    FOREIGN KEY (idx_b) REFERENCES board_tbl (idx_b)
 );
 
-select * from dic_tbl;
+select * from board_tbl;
 
 
 
@@ -106,12 +110,16 @@ select * from dic_tbl where word like '%못%'
  select word,video from dic_tbl where word like CONCAT('%왼쪽%')
 
 
+ SELECT Host,User,plugin,authentication_string FROM mysql.user;
+ 
+ 
 
 select * from dic_tbl;
 
 
 select * from user_tbl;
 
+select * from comment_tbl;
 
 delete from content_tbl where content_idx = '8' 
 
@@ -141,7 +149,7 @@ DESCRIBE wondu_tbl;
 select * from wondu_good;
 
 
-
+insert into board_tbl(1,hi, hihi, ldk7024);
 
 -- mysql인코딩
 SELECT CONVERT(CONVERT(wondu_n USING BINARY) USING utf8), 
