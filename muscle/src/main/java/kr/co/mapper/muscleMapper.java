@@ -3,9 +3,13 @@ package kr.co.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
+import kr.co.domain.boardVO;
 import kr.co.domain.muscleVO;
 import kr.co.domain.userVO;
+
+
 
 
 
@@ -38,5 +42,9 @@ public interface muscleMapper {
    
    public String muscleBoardContent(); // 게시판 상세보기 페이지로 이동
 
-    public void boardInsert(userVO vo);  // insert SQL~
+   public void boardInsert(userVO vo);  // insert SQL~
+    
+   @Select("select * from board_tbl where idx_b=#{idx_b}")
+	public boardVO muscleBoardContent(int idx_b);
+  
 }
