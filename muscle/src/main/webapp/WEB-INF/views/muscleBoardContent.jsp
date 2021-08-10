@@ -48,34 +48,61 @@
  	      error : function(){alert("error");}
  	   });
  	}
+   /*  $("#cmtCnt-btn").click(function(){
+    	 
+         } */
+       function goJson() {
+       	  $.ajax({
+       		  url: "${cpath}/commentList.do",
+       		  type: "get",
+       		  dataType: "json",
+       		  success: resultHtml, // callback 함수
+       		  error: function() { alert("error");}
+       	  });
+       	 alert("ajax통과 함")
+       	} 
+    function resultHtml(data) { // data안에 json형식으로 {(),(),(),()} 데이터 리스트가 있음
+    	// alert(data); 동적으로 게시판을 만들어줘야함
+    	var html ="<table class ='table'>";
+    	html+="<thead>";
+    	html+="<tr>";
+    	html+="<td>번호</td>";
+    	html+="<td>내용</td>";
+    	html+="<td>작성자</td>";
+    	html+="</tr>";
+    	// 반복문 ($.each)
+    	$.each(data, (index,obj)=>{
+    		html+="<tr>";
+    		html+="<td>"+obj.idx_c+"</td>";
+    		html+="<td>"+obj.comment+"</td>";
+    		html+="<td>"+obj.id+"</td>";
+  			html+="</tbody>"
+    		html+="</tr>";
+    	});
+    	html+="</table>";
+    	$("#list").html(html);
+    	}
+    
+    
+    
+    
+    
     </script>
-    <style type="text/css">
-    .reply_button{
-    width:100px;
-
-    background-color: #f8585b;
-
-    border: none;
-
-    color:#fff;
-
-    padding: 4px 0;
-
-    text-align: center;
-
-    text-decoration: none;
-
-    display: inline-block;
-
-    font-size: 15px;
-
-    margin: 4px;
-
-    cursor: pointer;
-    
-    }
-    
-    </style>
+<style type="text/css">
+.reply_button {
+	width: 100px;
+	background-color: #f8585b;
+	border: none;
+	color: #fff;
+	padding: 4px 0;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 15px;
+	margin: 4px;
+	cursor: pointer;
+}
+</style>
 </head>
 
 
@@ -172,21 +199,51 @@
 				<button type="button" class="btn btn-sm btn-primary" id="btnList"
 					onclick="goboard()">게시판으로 이동</button>
 			</div>
-			<br> 
-			<br>
+			<br> <br>
 			
+			<!-- 댓글 -->
+              <form id="frm" method="post" action="${cpath}/commentInsert.do">
 			<div>
 				<div class="mb-3">
-					<textarea class="form-control id=" cmtcnt" name="cmtcnt" rows="1"
+					<textarea class="form-control" name="comment" rows="1"
 						placeholder="여러분의 소중한 댓글을 입력해주세요."></textarea>
 				</div>
 				<div class="comment-button">
-					<button class="reply_button">댓글달기</button>
+					<input type="submit" class="btn btn-primary btn-sm" value="댓글 쓰기"> 
+					
+                <button type="reset" class="btn btn-sm btn-primary">댓글쓰기 취소</button>
 				</div>
 			</div>
+			</form>
 			<br>
-			<br>
-			
+			<!-- 댓글 목록 -->
+			<button class="btn btn-success btn-sm" onclick="goJson()">댓글목록 보기</button>
+<%-- 			<div class="container">
+				<h4>댓글목록</h4>
+				<br>
+		<table class="table">
+    <thead>
+      <tr>
+        <th>게시판 번호</th>
+        <th>댓글 번호</th>
+        <th>댓글내용</th>
+        <th>작성자</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <c:forEach var="vo" items="${list}" >
+      <tr>
+        <td>${vo.idx_b}</td>
+        <td>${vo.idx_c}</td>
+        <td>${vo.comment}</td>
+         <td>${vo.id}</td> 
+      </tr>
+      </c:forEach>
+    </tbody> 
+  </table>
+			</div> --%>
+			<div id="list"></div>
 		</div>
 
 

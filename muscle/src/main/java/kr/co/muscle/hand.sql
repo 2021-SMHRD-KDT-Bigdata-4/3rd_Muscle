@@ -2,6 +2,8 @@
 DROP TABLE tbl_user CASCADE;
 
 
+DROP TABLE comment_tbl CASCADE;
+
 SET foreign_key_checks = 0;
 drop table tbl_user CASCADE;
 SET foreign_key_checks = 1;
@@ -43,19 +45,22 @@ insert into board_tbl(title, content,id) values('안녕3', '나는 대교짱짱�
 insert into board_tbl(title, content,id) values('수어에 대해서 알고싶어요', '알고싶어요','coco');
 -- 테이블 안의 내용 다 지움
 truncate board_tbl;
-
-
-
+insert into comment_tbl(idx_c, comment,idx_b, id) values('1','test','2','admin');
+insert into comment_tbl(comment,idx_b, id) values('dkdkdkdkdkk','1','coco');
+insert into comment_tbl(comment,idx_b, id) values('test','3','coco');
+insert into comment_tbl(comment,idx_b, id) values('test','3','admin');
 -- 댓글 테이블
 create table comment_tbl(
    idx_c int not null auto_increment,
    comment varchar(1000) not null,
    idx_b int not null, 
+   id varchar(30) not null,
    primary key(idx_c),
+   FOREIGN KEY (id) REFERENCES tbl_user (id),
    FOREIGN KEY (idx_b) REFERENCES board_tbl (idx_b)
 );
 
-select * from board_tbl;
+select * from comment_tbl;
 
 
 
@@ -115,7 +120,7 @@ select * from dic_tbl where word like '%못%'
 
  SELECT Host,User,plugin,authentication_string FROM mysql.user;
  
- 
+
 
 select * from dic_tbl;
 
@@ -150,6 +155,7 @@ DESCRIBE wondu_tbl;
 
 
 select * from wondu_good;
+
 
 
 insert into board_tbl(1,hi, hihi, ldk7024);

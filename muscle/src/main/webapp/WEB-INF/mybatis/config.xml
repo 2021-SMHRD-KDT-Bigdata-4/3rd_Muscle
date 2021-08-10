@@ -6,5 +6,6 @@
       <typeAlias type="kr.co.domain.muscleVO" alias="muscleVO" />
       <typeAlias type="kr.co.domain.userVO" alias="userVO" />
       <typeAlias type="kr.co.domain.boardVO" alias="boardVO" />
+      <typeAlias type="kr.co.domain.commentVO" alias="commentVO" />
    </typeAliases> 
 </configuration>
