@@ -145,44 +145,23 @@
 
 			<h4>게시글 상세조회</h4>
 
-			<form name="form" id="form" role="form" method="post"
-				action="${cpath}/boardInsert.do">
-
-				<div class="mb-3">
-
-					<label for="title">제목</label>
-
-					<textarea class="form-control" rows="1" name="title"
-						readonly="readonly">${userVO.title}</textarea>
-
-
-				</div>
-
-
-
-				<div class="mb-3">
-
-					<label for="reg_id">작성자</label>
-
-					<textarea class="form-control" rows="1" name="name"
-						readonly="readonly">${userVO.name}</textarea>
-
-				</div>
-
-
-
-				<div class="mb-3">
-
-					<label for="content">내용</label>
-
-					<textarea class="form-control" rows="5" name="content"
-						readonly="readonly">${userVO.content}</textarea>
-
-				</div>
-
-
-
-			</form>
+			 <div class="panel-body">
+    <form id="frm" method="post">
+    	   <input type ="hidden" name="idx_b" value="${uservo.idx_b}">
+               <div class="form-group">
+                  <label>제목: </label> 
+                  <input type="text" class="form-control" id="title" name="title" value="${uservo.title}" readonly="readonly">
+               </div>
+               <div class="form-group">
+                  <label>내용:</label> 
+                   <textarea class="form-control" rows="5" id=content name="content" readonly="readonly">${uservo.content}</textarea>
+               </div>   
+               <div class="form-group">
+                  <label>작성자: </label> 
+                  <input type="text" class="form-control" name="id" value ="${uservo.id}" readonly="readonly">
+               </div>                       
+            </form>    
+    </div>
 
 			<div>
 

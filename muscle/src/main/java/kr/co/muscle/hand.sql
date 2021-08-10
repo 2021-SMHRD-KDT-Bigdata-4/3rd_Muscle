@@ -33,11 +33,12 @@ create table board_tbl(
    primary key(idx_b),
    FOREIGN KEY (id) REFERENCES tbl_user (id)
 );
+select * from board_tbl;
 
 insert into board_tbl(title, content,id) values('안녕', '나는 대교짱짱맨','admin');
 insert into board_tbl(title, content,id) values('안녕2', '나는 대교짱짱맨','admin');
 insert into board_tbl(title, content,id) values('안녕3', '나는 대교짱짱맨','coco');
-
+insert into board_tbl(title, content,id) values('수어에 대해서 알고싶어요', '알고싶어요','coco');
 -- 테이블 안의 내용 다 지움
 truncate board_tbl;
 

@@ -8,7 +8,7 @@ public class userVO {
    private String pw;
    private String name;
    private String tel;
-   private String idx_b;
+   private int idx_b;
    private String title;
    private String content;
 }

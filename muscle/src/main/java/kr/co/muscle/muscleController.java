@@ -118,19 +118,28 @@ public class muscleController {
    // 글쓰기 창으로 이동
    @RequestMapping("/muscleBoardForm.do")
    public String muscleBoardForm() { 
+	   System.out.println("컨트롤러에 들어옴");
       return "muscleBoardForm";
     }
    // 게시판 상세보기 창으로 이동
-   @RequestMapping("/muscleBoardContent.do")
-   public String muscleBoardContent() {
-	   return "muscleBoardContent";
-   }
+	/*
+	 * @RequestMapping("/muscleBoardContent.do") public String muscleBoardContent()
+	 * { return "muscleBoardContent"; }
+	 */
   // 게시판 글쓰기
    @PostMapping("/boardInsert.do")
    public String boardInsert(userVO vo) {  // 파라메터수집(자동) -> new BoardVO();
-	   System.out.println("여긴 컨트롤러, 컨트롤러 까지 들어옴");
 	   muscleMapper.boardInsert(vo);
-	   return "muscleBoardList";
+	   return "redirect:/muscleBoardList.do";
+	 
    }
+   
+   // 게시판 상세보기 구현
+   @RequestMapping("/muscleBoardContent.do")
+   public String muscleboardContent(int idx_b, Model model) {
+	   userVO uservo = muscleMapper.muscleboardContent(idx_b);
+	   model.addAttribute("userVO",uservo);
+	   return "uservo";
+   }   
    
 }
