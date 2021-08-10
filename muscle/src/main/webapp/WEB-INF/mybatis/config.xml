@@ -5,6 +5,6 @@
     <typeAliases>
       <typeAlias type="kr.co.domain.muscleVO" alias="muscleVO" />
       <typeAlias type="kr.co.domain.userVO" alias="userVO" />
-     
+      <typeAlias type="kr.co.domain.boardVO" alias="boardVO" />
    </typeAliases> 
 </configuration>

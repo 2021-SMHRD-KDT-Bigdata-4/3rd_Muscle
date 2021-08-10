@@ -35,6 +35,8 @@ create table board_tbl(
 );
 select * from board_tbl;
 
+select * from board_tbl where idx_b=1;
+select * from board_tbl;
 insert into board_tbl(title, content,id) values('안녕', '나는 대교짱짱맨','admin');
 insert into board_tbl(title, content,id) values('안녕2', '나는 대교짱짱맨','admin');
 insert into board_tbl(title, content,id) values('안녕3', '나는 대교짱짱맨','coco');

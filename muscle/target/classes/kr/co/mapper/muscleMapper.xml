@@ -22,7 +22,10 @@
         values(#{title},#{content},#{id})
     </insert>
     
-    <select id="muscleboardContent" resultType="userVO" >
-    select * from board_tbl where idx_b = #{idx_b}
-   </select>
+
+
+   <!-- <select id="muscleBoardContent" resultType="userVO">
+       select * from board_tbl where idx_b=#{idx_b}
+   </select> -->
+
 </mapper>

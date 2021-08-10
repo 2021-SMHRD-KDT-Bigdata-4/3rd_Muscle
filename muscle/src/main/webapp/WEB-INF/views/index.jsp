@@ -1,5 +1,4 @@
-
-+<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="cpath" value="/muscle" />
@@ -32,6 +31,8 @@
     </div>
     
     <script src="/muscle/resources/js/camera.js"></script>
+    <script async src="https://docs.opencv.org/3.4.0/opencv.js"
+		onload="onOpenCvReady()" type="text/javascript"></script>
     <!-- <script src="script.js"></script> -->
   </body>
-</html>
+</html> 

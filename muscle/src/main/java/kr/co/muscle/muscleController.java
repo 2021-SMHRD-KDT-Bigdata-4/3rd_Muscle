@@ -1,29 +1,23 @@
 package kr.co.muscle;
 
-import java.net.URLEncoder;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.core.io.Resource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.co.domain.boardVO;
 import kr.co.domain.muscleVO;
 import kr.co.domain.userVO;
 import kr.co.mapper.muscleMapper;
+
 
 
 @Controller
@@ -122,24 +116,33 @@ public class muscleController {
       return "muscleBoardForm";
     }
    // 게시판 상세보기 창으로 이동
-	/*
-	 * @RequestMapping("/muscleBoardContent.do") public String muscleBoardContent()
-	 * { return "muscleBoardContent"; }
-	 */
+
+   
+
   // 게시판 글쓰기
    @PostMapping("/boardInsert.do")
    public String boardInsert(userVO vo) {  // 파라메터수집(자동) -> new BoardVO();
 	   muscleMapper.boardInsert(vo);
 	   return "redirect:/muscleBoardList.do";
-	 
+   }
+
+
+   @RequestMapping("/muscleBoardContent.do")
+   public void muscleBoardContent(int idx_b, Model model) {  //파라메터수집(자동) -> new BoardVO();
+	  System.out.println("컨트롤러들어옴");
+	  boardVO vo = muscleMapper.muscleBoardContent(idx_b);
+	  System.out.println("컨트롤러임");
+	  model.addAttribute("vo", vo);      //model : request.setAtribute랑 같음! 요청받으면 저장을 해서 넘겨준다 
+      
    }
    
-   // 게시판 상세보기 구현
-   @RequestMapping("/muscleBoardContent.do")
-   public String muscleboardContent(int idx_b, Model model) {
-	   userVO uservo = muscleMapper.muscleboardContent(idx_b);
-	   model.addAttribute("userVO",uservo);
-	   return "uservo";
-   }   
+   
+   
+   
+   
+   
+   
+   
+
    
 }

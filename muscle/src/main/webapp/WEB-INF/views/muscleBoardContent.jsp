@@ -144,30 +144,33 @@
 		<div class="container" role="main">
 
 			<h4>게시글 상세조회</h4>
-
-			 <div class="panel-body">
-    <form id="frm" method="post">
-    	   <input type ="hidden" name="idx_b" value="${uservo.idx_b}">
-               <div class="form-group">
-                  <label>제목: </label> 
-                  <input type="text" class="form-control" id="title" name="title" value="${uservo.title}" readonly="readonly">
-               </div>
-               <div class="form-group">
-                  <label>내용:</label> 
-                   <textarea class="form-control" rows="5" id=content name="content" readonly="readonly">${uservo.content}</textarea>
-               </div>   
-               <div class="form-group">
-                  <label>작성자: </label> 
-                  <input type="text" class="form-control" name="id" value ="${uservo.id}" readonly="readonly">
-               </div>                       
-            </form>    
-    </div>
+			<form name="form" id="form" role="form" method="post"
+				action="${cpath}/boardInsert.do">
+				<div class="mb-3">
+					<label for="idx_b">번호</label>
+					<textarea class="form-control" rows="1" name="idx_b"
+						readonly="readonly">${vo.idx_b}</textarea>
+				</div>
+				<div class="mb-3">
+					<label for="title">제목</label>
+					<textarea class="form-control" rows="1" name="title"
+						readonly="readonly">${vo.title}</textarea>
+				</div>
+				<div class="mb-3">
+					<label for="id">작성자</label>
+					<textarea class="form-control" rows="1" name="id"
+						readonly="readonly">${vo.id}</textarea>
+				</div>
+				<div class="mb-3">
+					<label for="content">내용</label>
+					<textarea class="form-control" rows="5" name="content"
+						readonly="readonly">${vo.content}</textarea>
+				</div>
+			</form>
 
 			<div>
-
 				<button type="button" class="btn btn-sm btn-primary" id="btnList"
 					onclick="goboard()">게시판으로 이동</button>
-
 			</div>
 			<br> 
 			<br>

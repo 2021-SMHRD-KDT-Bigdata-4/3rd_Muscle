@@ -5,8 +5,11 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import kr.co.domain.boardVO;
 import kr.co.domain.muscleVO;
 import kr.co.domain.userVO;
+
+
 
 
 
@@ -41,5 +44,9 @@ public interface muscleMapper {
 
    public void boardInsert(userVO vo);  // insert SQL~
     
-   public userVO muscleboardContent(int idx_b); // select SQL~  // 게시판 상세보기 띄우기
+
+   @Select("select * from board_tbl where idx_b=#{idx_b}")
+	public boardVO muscleBoardContent(int idx_b);
+  
+
 }

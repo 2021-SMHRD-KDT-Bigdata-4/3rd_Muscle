@@ -171,8 +171,6 @@
    </header>
    <!-- end of header -->
 
-
-
    <!-- Scripts -->
    <script
       src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
