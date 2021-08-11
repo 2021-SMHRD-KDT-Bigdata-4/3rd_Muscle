@@ -106,7 +106,7 @@
                   <li class="nav-item"><a class="nav-link" href="index.do">수어음성번역 서비스</a></li>
                </c:if>
                
-               <li class="nav-item"><a class="nav-link" href="musclevideo.do">수어백과사전</a></li>
+               <li class="nav-item"><a class="nav-link" href="musclevideo.do">수어 사전</a></li>
             
             <c:if test="${userVO == null}">
                   <li class="nav-item"><a class="nav-link" href="main.do" id="clickButton">자유게시판</a></li>

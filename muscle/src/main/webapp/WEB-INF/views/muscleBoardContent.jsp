@@ -48,6 +48,19 @@
  	      error : function(){alert("error");}
  	   });
  	}
+    
+    
+    function insertFn() {
+  	   $.ajax({
+  	      url : "${cpath}/commentInsert.do",
+  	      type:"get",
+  	      success : function(){
+  	         alert("댓글이 입력됨.")
+  	         location.href="${cpath}/muscleBoardContent.do";
+  	      },
+  	      error : function(){alert("error");}
+  	   });
+  	}
    /*  $("#cmtCnt-btn").click(function(){
     	 
          } */
@@ -137,8 +150,7 @@
 						aria-current="page" href="main.do">메인</a></li>
 					<li class="nav-item"><a class="nav-link" href="index.do">수어
 							음성번역 서비스</a></li>
-					<li class="nav-item"><a class="nav-link" href="musclevideo.do">수어
-							백과사전</a></li>
+					<li class="nav-item"><a class="nav-link" href="musclevideo.do">수어 사전</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="muscleBoardList.do">자유게시판</a></li>
 				</ul>
@@ -202,15 +214,17 @@
 			<br> <br>
 			
 			<!-- 댓글 -->
-              <form id="frm" method="post" action="${cpath}/commentInsert.do">
+              <%-- <form id="frm" method="post" action="${cpath}/muscleBoardContent.do"> --%>
+              <form id="frm" method="get">
+              <input type="hidden" id="idx_b" name="idx_b" value="${vo.idx_b}"> 
 			<div>
+			<input id="id" name="id" type="text" value="${vo.id}">
 				<div class="mb-3">
 					<textarea class="form-control" name="comment" rows="1"
 						placeholder="여러분의 소중한 댓글을 입력해주세요."></textarea>
 				</div>
 				<div class="comment-button">
-					<input type="submit" class="btn btn-primary btn-sm" value="댓글 쓰기"> 
-					
+					<input type="submit" class="btn btn-primary btn-sm" value="댓글 쓰기" onclick="insertFn()"> 
                 <button type="reset" class="btn btn-sm btn-primary">댓글쓰기 취소</button>
 				</div>
 			</div>

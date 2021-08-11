@@ -196,7 +196,7 @@ body {
                         <a class="nav-link" href="index.do">수어 음성번역 서비스</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="musclevideo.do">수어 백과사전</a>
+                        <a class="nav-link" href="musclevideo.do">수어 사전</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="muscleBoardList.do">자유게시판</a>
@@ -213,7 +213,7 @@ body {
         <!-- end of container -->
     </header>
  <body width="100%" height="100%">
-    <form action="gologin.do" method="post" class="loginForm">
+    <form action="gologin.do" method="post" class="loginForm" action="joinfunction.do">
       <h2>회원가입</h2>
       <div class="idForm">
         <input type="text" class="id" placeholder="아이디" name="id">

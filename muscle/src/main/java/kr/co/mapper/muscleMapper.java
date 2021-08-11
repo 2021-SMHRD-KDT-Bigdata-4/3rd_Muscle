@@ -33,6 +33,8 @@ public interface muscleMapper {
    
    public String logout();  //로그아웃 기능
    
+   public String joinfunction(userVO vo); // 회원가입 기능
+   
    public String video();   //실시간 웹캠 확인 가능가능!
    
    public String camera();
@@ -51,6 +53,17 @@ public interface muscleMapper {
     
    public List<commentVO> commentList(); // 댓글 리스트 출력
    
-   public void commentInsert(commentVO vo);  // 댓글 작성 기능
+   
 
-}
+   public String commentInsert(commentVO vo);
+   		
+   
+   
+   
+	}
+
+
+
+
+
+

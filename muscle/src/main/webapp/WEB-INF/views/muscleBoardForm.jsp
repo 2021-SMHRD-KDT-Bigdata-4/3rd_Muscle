@@ -73,7 +73,7 @@
                         <a class="nav-link" href="index.do">수어 음성번역 서비스</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="musclevideo.do">수어 백과사전</a>
+                        <a class="nav-link" href="musclevideo.do">수어 사전</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="muscleBoardList.do">자유게시판</a>
