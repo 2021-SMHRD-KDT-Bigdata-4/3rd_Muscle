@@ -214,17 +214,17 @@
 			<br> <br>
 			
 			<!-- 댓글 -->
-              <%-- <form id="frm" method="post" action="${cpath}/muscleBoardContent.do"> --%>
-              <form id="frm" method="get">
+              <form id="frm" method="post" action="${cpath}/muscleBoardContent.do"> 
               <input type="hidden" id="idx_b" name="idx_b" value="${vo.idx_b}"> 
+              <input type="hidden" id="id" name="id" value="${vo.id}">
 			<div>
-			<input id="id" name="id" type="text" value="${vo.id}">
+			
 				<div class="mb-3">
 					<textarea class="form-control" name="comment" rows="1"
 						placeholder="여러분의 소중한 댓글을 입력해주세요."></textarea>
 				</div>
 				<div class="comment-button">
-					<input type="submit" class="btn btn-primary btn-sm" value="댓글 쓰기" onclick="insertFn()"> 
+					<input type="submit" class="btn btn-primary btn-sm" value="댓글 쓰기"> 
                 <button type="reset" class="btn btn-sm btn-primary">댓글쓰기 취소</button>
 				</div>
 			</div>
