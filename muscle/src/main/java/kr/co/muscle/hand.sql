@@ -5,11 +5,11 @@ DROP TABLE tbl_user CASCADE;
 DROP TABLE comment_tbl CASCADE;
 
 SET foreign_key_checks = 0;
-drop table tbl_user CASCADE;
+drop table comment_tbl CASCADE;
 SET foreign_key_checks = 1;
 
 
-
+select * from tbl_user
 -- 사용자 테이블
 create table tbl_user(
    id varchar(30) not null,
@@ -19,6 +19,10 @@ create table tbl_user(
    primary key(id)
 );
 insert into tbl_user values('coco','1234','채채','1234-1234')
+insert into tbl_user values('min','1234','민인데요','1234-1234')
+insert into tbl_user values('young','1234','현영여여','1234-1234')
+insert into tbl_user values('sik','1234','호애앵인데요','1234-1234')
+insert into tbl_user values('dea','1234','대교인데요','1234-1234')
 
 
 select * from tbl_user;
@@ -39,16 +43,10 @@ select * from board_tbl;
 
 select * from board_tbl where idx_b=1;
 select * from board_tbl;
-insert into board_tbl(title, content,id) values('안녕', '나는 대교짱짱맨','admin');
-insert into board_tbl(title, content,id) values('안녕2', '나는 대교짱짱맨','admin');
-insert into board_tbl(title, content,id) values('안녕3', '나는 대교짱짱맨','coco');
-insert into board_tbl(title, content,id) values('수어에 대해서 알고싶어요', '알고싶어요','coco');
+
 -- 테이블 안의 내용 다 지움
 truncate board_tbl;
-insert into comment_tbl(idx_c, comment,idx_b, id) values('1','test','2','admin');
-insert into comment_tbl(comment,idx_b, id) values('dkdkdkdkdkk','1','coco');
-insert into comment_tbl(comment,idx_b, id) values('test','3','coco');
-insert into comment_tbl(comment,idx_b, id) values('test','3','admin');
+
 -- 댓글 테이블
 create table comment_tbl(
    idx_c int not null auto_increment,
@@ -60,8 +58,22 @@ create table comment_tbl(
    FOREIGN KEY (idx_b) REFERENCES board_tbl (idx_b)
 );
 
+
+select * from comment_tbl where idx_b=1 
+
+
 select * from comment_tbl;
 
+
+insert into comment_tbl(comment,idx_b, id) values('민어디야ㅠ','1','coco');
+insert into comment_tbl(comment,idx_b, id) values('힝','2','min');
+insert into comment_tbl(comment,idx_b, id) values('후후','3','sik');
+insert into comment_tbl(comment,idx_b, id) values('호에엥','1','young');
+insert into comment_tbl(comment,idx_b, id) values('호애앵..','1','min');
+insert into comment_tbl(comment,idx_b, id) values('헤으응...','1','min');
+insert into comment_tbl(comment,idx_b, id) values('응애','1','min');
+insert into comment_tbl(comment,idx_b, id) values('근조직','1','dae');
+insert into comment_tbl(comment,idx_b, id) values('운동할랭..','1','coco');
 
 
 -- 사전 테이블
@@ -175,6 +187,12 @@ select wondu_n,wondu_c,price,img from wondu_tbl where wondu_n like  '%' '브라�
 
 
 select wondu_n,wondu_c,price,img from wondu_tbl where wondu_n like CONCAT('%','브라질','%')
+
+
+
+select * from tbl_board AS bb join comment_tbl AS cc on bb.idx_b = cc.idx_b
+
+
 
 
 

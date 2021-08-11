@@ -32,19 +32,13 @@
         values(#{title},#{content},#{id})
     </insert>
     
-    <!-- 댓글 리스트 출력 -->
-    <select id="commentList" resultType="commentVO">
-        select * from comment_tbl where idx_b = #{idx_b} 
-    </select>
-     
+ 
      <!-- 댓글 작성 기능 -->
      <insert id="commentInsert" parameterType="commentVO">
-        insert into comment_tbl(comment, idx_b,id) 
+        insert into comment_tbl(comment, idx_b, id) 
         values(#{comment},#{idx_b},#{id})
     </insert>
 
-   <!-- <select id="muscleBoardContent" resultType="userVO">
-       select * from board_tbl where idx_b=#{idx_b}
-   </select> -->
+
 
 </mapper>

@@ -16,7 +16,7 @@
         <button class="record-button" onclick="a()">녹화</button>
         <button class="stop-button">중지</button>
         <button class="play-button">녹화보기</button>
-        <a class="download-button" >다운로드</a>
+        <a class="download-button" name = "coco" value = "http://127.0.0.1:8081/muscle/coco/">다운로드</a>
       </div>
       <div class="video-container">
         <div class="video-item">
@@ -29,7 +29,9 @@
         </div>
       </div>
     </div>
-    
+    <script type="text/javascript">
+    	
+    </script>
     <script src="/muscle/resources/js/camera.js"></script>
     <script async src="https://docs.opencv.org/3.4.0/opencv.js"
 		onload="onOpenCvReady()" type="text/javascript"></script>

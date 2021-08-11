@@ -14,19 +14,21 @@ function videoStart() {
    alert("start");
 
   navigator.mediaDevices.getUserMedia({video:true,audio:true})
-  //사용자 권한 요청 코드
   .then(stream => {
     previewPlayer.srcObject = stream;
     startRecording(previewPlayer.captureStream())
+    //사용자 권한 요청 코드
   })
 }
 
 function startRecording(stream) {
   recordedChunks = [];
   recorder = new MediaRecorder(stream, {
+  //new MediaRecorder: 마이크 소리를 녹음하고 저장하려고 씀
   mimeType: 'video/webm; codecs=vp9,opus',
 });
   recorder.ondataavailable = (e) => {recordedChunks.push(e.data)}
+  //녹음이 진행되는 동안 데이터를 배열에 저장하는 작업
   recorder.start()
 }
 
@@ -38,11 +40,12 @@ function stopRecording() {
 
 
 function playRecording() {
+  
   const recordedBlob = new Blob(recordedChunks,{type: "video/mp4"});
   recordingPlayer.src = URL.createObjectURL(recordedBlob);
   recordingPlayer.play();
   downloadButton.href = recordingPlayer.src;
-  downloadButton.download = `recording_${new Date()}.mp4`;
+  downloadButton.download = `coco_${new Date()}.mp4`;
 }
 
 

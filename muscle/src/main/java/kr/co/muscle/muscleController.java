@@ -74,11 +74,24 @@ public class muscleController {
 		return "index";
 	}
 
+
 	// 메인 페이지 이동
 	@RequestMapping("/")
 	public String main() {
 		return "main";
 	}
+
+   
+   // 댓글 리스트 출력
+   @RequestMapping("/commentListAjax.do") //핸들러 매핑 @
+   public String commentListAjax(int idx_b, Model model) {
+	  System.out.println("여긴 컨트롤러");
+      boardVO list1 = muscleMapper.muscleBoardContent(idx_b);
+      List<commentVO> list2 = muscleMapper.commentListAjax(idx_b);
+      model.addAttribute("list1", list1);
+      model.addAttribute("list2", list2);
+      return "muscleBoardContent"; 
+   }
 
 	// 메인페이지로 이동
 	@RequestMapping("/main.do")
@@ -129,25 +142,13 @@ public class muscleController {
 		return "redirect:/muscleBoardList.do";
 	}
 
-	// 게시글 상세보기 구현
-	@RequestMapping("/muscleBoardContent.do")
-	public void muscleBoardContent(int idx_b, Model model) { // 파라메터수집(자동) -> new BoardVO();
-		boardVO vo = muscleMapper.muscleBoardContent(idx_b);
-		model.addAttribute("vo", vo); // model : request.setAtribute랑 같음! 요청받으면 저장을 해서 넘겨준다
 
-	}
-
-	// 댓글 리스트 출력
-	@RequestMapping("/commentList.do") // 핸들러 매핑 @
-	public @ResponseBody List<commentVO> boardListAjax() {
-		System.out.println("여긴 컨트롤러");
-		List<commentVO> list = muscleMapper.commentList();
-		return list;
-	}
+	
 
 	// 댓글 쓰기
-	@PostMapping("/commentInsert.do")
+	@PostMapping("/muscleBoardContent.do")
 	public String commentInsert(commentVO vo) { // 파라메터수집(자동) -> new commentVO();
+		System.out.println("컨트롤러ㅁㄴㅁㄴㅁㄴㅁ");
 		muscleMapper.commentInsert(vo);
 		System.out.println("게시판 번호" + vo.getIdx_b());
 		System.out.print("id는?" + vo.getId());
