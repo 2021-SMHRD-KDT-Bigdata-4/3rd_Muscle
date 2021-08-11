@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.domain.boardVO;
+import kr.co.domain.commentVO;
 import kr.co.domain.muscleVO;
 import kr.co.domain.userVO;
 import kr.co.mapper.muscleMapper;
@@ -102,7 +103,6 @@ public class muscleController {
    public String goboard() {
       return "muscleBoardList";
    }
-   
   
    // 마이페이지로 이동
    @RequestMapping("/mypage.do")
@@ -112,26 +112,35 @@ public class muscleController {
    // 글쓰기 창으로 이동
    @RequestMapping("/muscleBoardForm.do")
    public String muscleBoardForm() { 
+	   System.out.println("컨트롤러에 들어옴");
       return "muscleBoardForm";
     }
    // 게시판 상세보기 창으로 이동
+
    
+
   // 게시판 글쓰기
    @PostMapping("/boardInsert.do")
    public String boardInsert(userVO vo) {  // 파라메터수집(자동) -> new BoardVO();
-	   System.out.println("여긴 컨트롤러, 컨트롤러 까지 들어옴");
 	   muscleMapper.boardInsert(vo);
 	   return "redirect:/muscleBoardList.do";
-	   
    }
    
+   
+   // 게시글 상세보기 구현
    @RequestMapping("/muscleBoardContent.do")
    public void muscleBoardContent(int idx_b, Model model) {  //파라메터수집(자동) -> new BoardVO();
-	  System.out.println("컨트롤러들어옴");
 	  boardVO vo = muscleMapper.muscleBoardContent(idx_b);
-	  System.out.println("컨트롤러임");
 	  model.addAttribute("vo", vo);      //model : request.setAtribute랑 같음! 요청받으면 저장을 해서 넘겨준다 
-      //return "boardContent";
+      
+   }
+   
+   // 댓글 리스트 출력
+   @RequestMapping("/commentList.do") //핸들러 매핑 @
+   public @ResponseBody List<commentVO> boardListAjax() {
+	  System.out.println("여긴 컨트롤러");
+      List<commentVO> list = muscleMapper.commentList(); 
+      return list; 
    }
    
    
@@ -139,7 +148,6 @@ public class muscleController {
    
    
    
-   
-   
+
    
 }
