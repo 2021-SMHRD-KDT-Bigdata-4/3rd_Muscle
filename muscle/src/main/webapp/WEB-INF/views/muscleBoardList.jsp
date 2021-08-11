@@ -217,7 +217,7 @@ function muscleBoardForm() {
             <c:forEach var="vo" items="${list}" >
                <tr>
                   <td>${vo.idx_b}</td>
-                  <td><a href="${cpath}/muscleBoardContent.do?idx_b=${vo.idx_b}">${vo.title}</a></td>
+                  <td><a href="${cpath}/commentListAjax.do?idx_b=${vo.idx_b}">${vo.title}</a></td>
                   <td>${vo.id}</td>
                </tr>
             </c:forEach>

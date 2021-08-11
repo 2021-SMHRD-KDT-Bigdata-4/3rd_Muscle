@@ -47,9 +47,10 @@ public interface muscleMapper {
     
 
    @Select("select * from board_tbl where idx_b=#{idx_b}")
-   public boardVO muscleBoardContent(int idx_b);      // 게시판 상세보기 기능
-    
-   public List<commentVO> commentList(); // 댓글 리스트 출력
+   public boardVO muscleBoardContent(int idx_b);      // 게시판 상세보기 기능   
+   
+   @Select("select * from comment_tbl where idx_b=#{idx_b} ")
+   public List<commentVO> commentListAjax(int idx_b);
    
    public void commentInsert(commentVO vo);  // 댓글 작성 기능
 

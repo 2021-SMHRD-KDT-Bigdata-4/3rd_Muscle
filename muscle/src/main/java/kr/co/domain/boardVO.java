@@ -8,4 +8,5 @@ public class boardVO {
 	private String title;
 	private String content;
 	private String id;
+	
 }

@@ -136,12 +136,23 @@ public class muscleController {
    }
    
    // 댓글 리스트 출력
-   @RequestMapping("/commentList.do") //핸들러 매핑 @
-   public @ResponseBody List<commentVO> boardListAjax() {
+   @RequestMapping("/commentListAjax.do") //핸들러 매핑 @
+   public String commentListAjax(int idx_b, Model model) {
 	  System.out.println("여긴 컨트롤러");
-      List<commentVO> list = muscleMapper.commentList(); 
-      return list; 
+      boardVO list1 = muscleMapper.muscleBoardContent(idx_b);
+      List<commentVO> list2 = muscleMapper.commentListAjax(idx_b);
+      model.addAttribute("list1", list1);
+      model.addAttribute("list2", list2);
+      return "muscleBoardContent"; 
    }
+   
+   @PostMapping("/commentInsert.do")
+   public String commentInsert(commentVO vo) {  // 파라메터수집(자동) -> new BoardVO();
+	   muscleMapper.commentInsert(vo);
+	   return "redirect:/muscleBoardContent.do";
+   }
+   
+   
    
    
    
