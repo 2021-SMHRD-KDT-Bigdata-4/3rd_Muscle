@@ -102,31 +102,52 @@
   transform: translateX(-50%);
 }
 .button{
+   background-color:#e8ede9;
+    height: 54px;
+	border-radius:28px;
+	border:1px solid #eff7f0;
+	display:inline-block;
+	cursor:pointer;
+	color:#0d0c0d;
+	font-family:Arial;
+	font-size:16px;
+	padding:16px 29px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
 
-    position: relative;
-	margin-bottom: 40px;
-	width: 102px;
-	height: 42px;
-	background: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
-	background-position: left;
-	background-size: 200%;
-	color: white;
-	font-weight: bold;
-	border: none;
-	cursor: pointer;
-	transition: 0.4s;
-	display: inline;
 
+}
+.button:hover {
+	background-color:#f1f7ed;
+}
+.button:active {
+	position:relative;
+	top:1px;
 }
 
 
 .inputv{
+  border-radius: 28px;
   height:40px;
   width: 400px;
   border: 1px solid;
   background:#ffffff;
 
 }
+.wrapper {
+  height: 65%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box1{
+width:250px; height:200px; border:1px solid; float:left; margin-right: 90px;
+}
+.box2{
+ width:250px; height:200px; border:1px solid; float:left;
+}
+
 
 </style>
 </head>
@@ -183,7 +204,7 @@
 
 
    <!-- 검색버튼 여기임! -->
-
+  
    <form method="post" class="inner">
    <div float="left" margin="30px">
       <input type="text" name="word" id="word" class="inputv">   
@@ -191,9 +212,30 @@
    </div>
       <div id="list" float="left" margin="30px"></div>
    </form>
+
+   <div class="wrapper">
+
+   <div class="text1">
+       <div class="box1">
+       </div>
+       <div class="text1">
+       <h5 style="margin-left: 100px;">근조직</h5>
+       </div>
+   </div>
+
+  
+   <div class="text2">
+       <div class="box2">
+       </div>
+       <div class="text2">
+          <h5 align="center">화이팅</h5>
+       </div>
+   </div>
    
-
-
+   
+  </div>
+   
+   
 
 </body>
 </html>

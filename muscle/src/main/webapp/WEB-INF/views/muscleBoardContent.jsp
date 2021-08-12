@@ -56,19 +56,32 @@
     
     </script>
 <style type="text/css">
-.reply_button {
-	width: 100px;
-	background-color: #f8585b;
-	border: none;
-	color: #fff;
-	padding: 4px 0;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 15px;
-	margin: 4px;
-	cursor: pointer;
+
+ .button{
+     background-color:#e8ede9;
+	 border-radius:28px;
+	 border:1px solid #eff7f0;
+	 display:inline-block;
+	 cursor:pointer;
+	 color:#0d0c0d;
+	 font-family:Arial;
+	 font-size:16px;
+	 padding:11px 20px;
+	 text-decoration:none;
+	 text-shadow:0px 1px 0px #2f6627;
+
+
 }
+ .button:hover {
+	background-color:#f1f7ed;
+}
+ .button:active {
+	position:relative;
+	top:1px;
+}
+
+
+
 </style>
 </head>
 
@@ -102,8 +115,7 @@
 				<ul class="navbar-nav ms-auto navbar-nav-scroll">
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="main.do">메인</a></li>
-					<li class="nav-item"><a class="nav-link" href="index.do">수어
-							음성번역 서비스</a></li>
+					<li class="nav-item"><a class="nav-link" href="index.do">수어 음성번역 서비스</a></li>
 					<li class="nav-item"><a class="nav-link" href="musclevideo.do">수어 사전</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="muscleBoardList.do">자유게시판</a></li>
@@ -135,7 +147,7 @@
 	<article>
 
 		<div class="container" role="main">
-
+           <div style= "border: 1px; border-radius: 2em;">
 			<h4>게시글 상세조회</h4>
 			<form name="form" id="form" role="form" method="post"
 				action="${cpath}/boardInsert.do">
@@ -162,29 +174,34 @@
 			</form>
 
 			<div>
-				<button type="button" class="btn btn-sm btn-primary" id="btnList"
+				<button type="button" class="button" id="btnList"
 					onclick="goboard()">게시판으로 이동</button>
 			</div>
+			</div>
 			<br> <br>
-			
+		     	<div style="border: 1px; border-radius: 2em;">
 			<!-- 댓글 -->
               <form id="frm" method="post" action="${cpath}/muscleBoardContent.do"> 
               <input type="hidden" id="idx_b" name="idx_b" value="${list1.idx_b}"> 
               <input type="hidden" id="id" name="id" value="${list1.id}">
 			<div>
 				<div class="mb-3">
+				<h5>댓글</h5>
 					<textarea class="form-control" name="comment" rows="1"
 						placeholder="여러분의 소중한 댓글을 입력해주세요."> </textarea>
 				</div>
 				<div class="comment-button">
-					<input type="submit" class="btn btn-primary btn-sm" value="댓글 쓰기" > 
-                <button type="reset" class="btn btn-sm btn-primary">댓글쓰기 취소</button>
+					<input type="submit" class="button" value="댓글 쓰기" > 
+                <button type="reset" class="button">취소</button>
 				</div>
 			</div>
 			</form>
+			</div>
 			<br>
 			
 	     <br>
+	     <div style="border: 1px; background-color: #F5F5F5">
+         <div>
          <table class="table">
     <thead>
       <tr>
@@ -201,11 +218,16 @@
       </tr>
       </c:forEach>
   </table> 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          </div>
-      
+         </div>
 
 	</article>
 
 </body>
+<script type="text/javascript">
+let result = ${list2};
+console.log(result);
+</script>
 
 </html>

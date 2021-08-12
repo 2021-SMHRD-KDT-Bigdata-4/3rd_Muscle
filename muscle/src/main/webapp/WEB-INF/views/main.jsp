@@ -103,7 +103,7 @@
                </c:if>
                
                <c:if test="${userVO != null}">
-                  <li class="nav-item"><a class="nav-link" href="index.do">수어음성번역 서비스</a></li>
+                  <li class="nav-item"><a class="nav-link" href="index.do">수어 음성번역 서비스</a></li>
                </c:if>
                
                <li class="nav-item"><a class="nav-link" href="musclevideo.do">수어 사전</a></li>
@@ -148,8 +148,8 @@
          <div class="row">
             <div class="col-lg-7 col-xl-5">
                <div class="text-container">
-                  <h1>너의 수어가 들려</h1>
-                  <p class="p-large">딥러닝 기반 수어 음성번역 서비스</p>
+                  <h1 align="center">수어, 또 하나의 언어</h1>
+                  <p class="p-large" align="right">보이는 언어, 수어로 통하는 세상</p>
 
                </div>
                <!-- end of text-container -->

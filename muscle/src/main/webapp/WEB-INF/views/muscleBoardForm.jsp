@@ -42,7 +42,31 @@
  	}
   
     </script>
-  </head>
+     <style type="text/css">
+     .button{
+     background-color:#e8ede9;
+	 border-radius:28px;
+	 border:1px solid #eff7f0;
+	 display:inline-block;
+	 cursor:pointer;
+	 color:#0d0c0d;
+	 font-family:Arial;
+	 font-size:16px;
+	 padding:11px 20px;
+	 text-decoration:none;
+	 text-shadow:0px 1px 0px #2f6627;
+
+
+}
+.button:hover {
+	background-color:#f1f7ed;
+}
+.button:active {
+	position:relative;
+	top:1px;
+}
+     
+     </style>
 	
 	
 	<!-- Favicon  -->
@@ -135,8 +159,8 @@
 
 				
 			<div>
-				<input type="submit" class="btn btn-primary btn-sm" value="저장"> 
-                <button type="reset" class="btn btn-sm btn-primary">글쓰기 취소</button>
+				<input type="submit" class="button" value="저장"> 
+                <button type="reset" class="button">글쓰기 취소</button>
 			</div>
 		</form>
 			

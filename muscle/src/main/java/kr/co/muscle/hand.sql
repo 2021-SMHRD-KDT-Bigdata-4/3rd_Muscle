@@ -94,34 +94,18 @@ TRUNCATE dic_tbl;
 -- C:\Users\21SMT64\Desktop\004.수어_영상_sample\원시데이터
 -- 백과사전테이블 데이터 삽입
 insert into dic_tbl(word, video) values('왼쪽', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0001_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('ㅎ[ㄹ,ㄹ르', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0002_REAL01_F.mp4');
 insert into dic_tbl(word, video) values('오른쪽', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0003_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('오른쪽', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0004_REAL01_F.mp4');
 insert into dic_tbl(word, video) values('여기', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0005_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('여기', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0006_REAL01_F.mp4');
 insert into dic_tbl(word, video) values('저기', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0007_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('저기', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0008_REAL01_F.mp4');
 insert into dic_tbl(word, video) values('운전', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0009_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('운전 천천히', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0010_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('운전 빨리', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0011_REAL01_F.mp4');
 insert into dic_tbl(word, video) values('빨리 가다', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0012_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('시간 급하다', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0013_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('시간 급하다', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0014_REAL01_F.mp4');
 insert into dic_tbl(word, video) values('급하다', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0015_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('급하다', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0016_REAL01_F.mp4');
 insert into dic_tbl(word, video) values('약속 늦다', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0017_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('약속 늦다', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0018_REAL01_F.mp4');
 insert into dic_tbl(word, video) values('나', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0019_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('나', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0020_REAL01_F.mp4');
 insert into dic_tbl(word, video) values('당신', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0021_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('당신', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0022_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('그 남자 맞다', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0023_REAL01_F.mp4');
 insert into dic_tbl(word, video) values('그 남자 맞다', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0024_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('잘못 말하다', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0025_REAL01_F.mp4');
 insert into dic_tbl(word, video) values('잘못 말해주다', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0026_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('위험', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0027_REAL01_F.mp4');
 insert into dic_tbl(word, video) values('위험', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0028_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('항상', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0029_REAL01_F.mp4');
 insert into dic_tbl(word, video) values('항상', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0030_REAL01_F.mp4');
 
 

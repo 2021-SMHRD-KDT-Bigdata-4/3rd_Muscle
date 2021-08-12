@@ -68,23 +68,41 @@ function muscleBoardForm() {
 }
 
 
-.adad{
-  background: #3498db;
-  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-  background-image: -o-linear-gradient(top, #3498db, #2980b9);
-  background-image: linear-gradient(to bottom, #3498db, #2980b9);
-  -webkit-border-radius: 28;
-  -moz-border-radius: 28;
-  border-radius: 28px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 17px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
+.button{
+   background-color:#e8ede9;
+    height: 54px;
+	border-radius:28px;
+	border:1px solid #eff7f0;
+	display:inline-block;
+	cursor:pointer;
+	color:#0d0c0d;
+	font-family:Arial;
+	font-size:16px;
+	padding:11px 20px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
 
 
+}
+.button:hover {
+	background-color:#f1f7ed;
+}
+.button:active {
+	position:relative;
+	top:1px;}
+	
+.table{
+  border: 1px solid #CCC;
+  font-size: 13px;
+  color: white;
+  background-color: #F5F5F5;
+  
+  border-collapse: separate;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+
+
+}
 }
 </style>
 <meta charset="utf-8">
@@ -165,7 +183,7 @@ function muscleBoardForm() {
                </c:if>
                
                <c:if test="${userVO != null}">
-                  <li class="nav-item"><a class="nav-link" href="index.do">수어음성번역 서비스</a></li>
+                  <li class="nav-item"><a class="nav-link" href="index.do">수어 음성번역 서비스</a></li>
                </c:if>
                
                <li class="nav-item"><a class="nav-link" href="musclevideo.do">수어 사전</a></li>
@@ -203,9 +221,12 @@ function muscleBoardForm() {
    <br>
    <br>
    <br>
+   <br>
+  
    <div class="container">
       <h4>자유게시판</h4>
-      <table class="table" id="list" >
+      <br>
+      <table class="table" id="list"  >
          <thead>
             <tr>
                <th>번호</th>
@@ -223,9 +244,10 @@ function muscleBoardForm() {
             </c:forEach>
          </tbody>
       </table>
-      <a class="adad" href="muscleBoardForm.do">글쓰기</a>
-      
-   </div>
+      <br>
+      <a class="button" href="muscleBoardForm.do">글쓰기</a>
+      </div>
+     
 </body>
 
 </html>

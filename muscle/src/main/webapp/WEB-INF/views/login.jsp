@@ -192,7 +192,14 @@ body {
 			계정이 없으신가요? <a href="join.do">회원가입</a>
 		</div>
 	</form>
-
-
 </body>
+<script type="text/javascript">
+let msg = "";
+msg = ${msg};
+console.log(msg);
+if(msg != "none") {
+	alert(msg);
+	location.reload;
+}
+</script>
 </html>
