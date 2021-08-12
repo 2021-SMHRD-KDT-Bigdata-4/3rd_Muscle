@@ -1,5 +1,6 @@
 package kr.co.muscle;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -12,14 +13,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.google.gson.Gson;
 
 import kr.co.domain.boardVO;
 import kr.co.domain.commentVO;
 import kr.co.domain.muscleVO;
 import kr.co.domain.userVO;
 import kr.co.mapper.muscleMapper;
+import lombok.extern.slf4j.Slf4j;
 
 @Controller
+@Slf4j
 public class muscleController {
 	@Inject
 	private muscleMapper muscleMapper;
@@ -37,19 +43,23 @@ public class muscleController {
     
 	// 로그인 기능
 	@RequestMapping("/login.do")
-	public String login(userVO vo, HttpServletRequest request) { // 로그인 기능
-		userVO uservo = muscleMapper.login(vo);
-		System.out.println(uservo.getId());
-		if (uservo != null) {
+	public ModelAndView login(userVO vo, HttpServletRequest request, Model model) { // 로그인 기능
+		ModelAndView mav = new ModelAndView();
+		int idCheck = muscleMapper.checkId(vo);
+		/* int pwCheck = muscleMapper.checkPw(vo); */
+		log.info("아이디 체크"+idCheck);
+		if(idCheck > 0) {
+			userVO uservo = muscleMapper.login(vo);
 			HttpSession session = request.getSession();
 			session.setAttribute("userVO", uservo);
+			mav.setViewName("main");
 		} else {
-			HttpSession session = request.getSession();
-			session.setAttribute("msg", "사용자 정보가 올바르지 않습니다.");
+			mav.addObject("msg", new Gson().toJson("사용자 정보가 일치하지 않습니다."));
+			mav.setViewName("login");
 		}
 		// 세션을 가져올때 model을 사용하면 너무 복잡해서 그냥 이거 생성해서 세션을 가져오거나 생성해주는 조건문을 주고
 		// model.addAttribute("uservo", uservo); // addAttribute: session
-		return "main";
+		return mav;
 	}
     
 	// 로그아웃 기능
@@ -101,8 +111,11 @@ public class muscleController {
 
 	// 로그인 페이지로 이동
 	@RequestMapping("/gologin.do")
-	public String gologin() {
-		return "login";
+	public ModelAndView gologin() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("msg", new Gson().toJson("none"));
+		mav.setViewName("login");
+		return mav;
 	}
 
 	// 회원가입 페이지로 이동
@@ -147,15 +160,21 @@ public class muscleController {
 
 	// 댓글 쓰기
 	@PostMapping("/muscleBoardContent.do")
-	public String commentInsert(commentVO vo) { // 파라메터수집(자동) -> new commentVO();
+	public ModelAndView commentInsert(commentVO vo) { // 파라메터수집(자동) -> new commentVO();
 		System.out.println("컨트롤러ㅁㄴㅁㄴㅁㄴㅁ");
 		muscleMapper.commentInsert(vo);
 		System.out.println("게시판 번호" + vo.getIdx_b());
 		System.out.print("id는?" + vo.getId());
-		// muscleMapper.commentInsert(vo);
-		return "muscleBoardContent";
+		ModelAndView mav = new ModelAndView();
+		List<commentVO> cList = muscleMapper.commentListAjax(vo.getIdx_b());
+		boardVO bList = muscleMapper.muscleBoardContent(vo.getIdx_b());
+		mav.setViewName("muscleBoardContent");
+		mav.addObject("list2", cList);
+		mav.addObject("list1", bList);
+		return mav;
 	}
 	
+
 	@RequestMapping("/musclevideo.do") 
 	public void search(Model model) {
 		System.out.println("컨트롤러들어옴");
@@ -166,6 +185,6 @@ public class muscleController {
 		System.out.println(list);
 		
 	}
-	
+
 
 }

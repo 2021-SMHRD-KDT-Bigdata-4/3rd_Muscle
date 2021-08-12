@@ -51,14 +51,19 @@ public interface muscleMapper {
    @Select("select * from board_tbl where idx_b=#{idx_b}")
    public boardVO muscleBoardContent(int idx_b);      // 게시판 상세보기 기능   
    
-   @Select("select * from comment_tbl where idx_b=#{idx_b} ")
+   @Select("select * from comment_tbl where idx_b=#{idx_b}")
    public List<commentVO> commentListAjax(int idx_b);
    
    public void commentInsert(commentVO vo);
+
    
    @Select("select * from dic_tbl")
    public List<muscleVO> search();
-   
+
+
+   @Select("select count(*) from tbl_user where id = #{id} and pw = #{pw}")
+   public int checkId(userVO vo);
+
    
    
 	}

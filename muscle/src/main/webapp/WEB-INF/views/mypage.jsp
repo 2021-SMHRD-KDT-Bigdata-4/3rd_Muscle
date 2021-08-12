@@ -17,8 +17,7 @@
 	
 	
 	
-	<style type="text/css">
-	 <style type="text/css">
+<style type="text/css">
     *{
   margin: 0px;
   padding: 0px;
@@ -27,7 +26,7 @@
   
 }
 
-body {
+.body {
   background-color:#ffffff ;
 }
 
@@ -115,15 +114,21 @@ body {
     
     </style>
     <!-- 스크립트 부분 -->
-
-  </head>
-	
-	
-	<!-- Favicon  -->
-    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/favicon.png">
+    <script type="text/javascript">
+    function logout() {
+        $.ajax({
+           url : "${cpath}/logout.do",
+           type:"get",
+           success : function(){
+              alert("로그아웃되었습니다.")
+              location.href="${cpath}/main.do";
+           },
+           error : function(){alert("error");}
+        });
+     }
+    </script>
 </head>
 <body>
-    
     <!-- Navigation -->
     <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-light" aria-label="Main navigation">
         <div class="container">
@@ -194,7 +199,7 @@ body {
 								<!-- 게시판 작성 내역 -->
 								<div class="sh_group">
 									<div class="sh_header">
-										<h5>  ${sessionScope.userVO.name}님이 자유게시판에 작성한 내용</h5>
+										<h5>${sessionScope.userVO.name}님이 자유게시판에 작성한 내용</h5>
 									</div>
 									<br>
 									<div class="mypage_content">
@@ -241,17 +246,5 @@ body {
 
      
 </body>
-<script type="text/javascript">
-    function logout() {
-        $.ajax({
-           url : "${cpath}/logout.do",
-           type:"get",
-           success : function(){
-              alert("로그아웃되었습니다.")
-              location.href="${cpath}/main.do";
-           },
-           error : function(){alert("error");}
-        });
-     }
-    </script>
+
       </html>
