@@ -158,7 +158,7 @@
             <div class="col-lg-5 col-xl-7">
                <div class="image-container">
                   <img class="img-fluid"
-                     src="${pageContext.request.contextPath}/resources/images/main_img.jpg"
+                     src="${pageContext.request.contextPath}/resources/images/main_project.png"
                      alt="alternative">
                </div>
                <!-- end of image-container -->

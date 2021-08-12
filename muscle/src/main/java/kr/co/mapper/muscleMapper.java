@@ -54,10 +54,10 @@ public interface muscleMapper {
    @Select("select * from comment_tbl where idx_b=#{idx_b} ")
    public List<commentVO> commentListAjax(int idx_b);
    
-   
-
    public void commentInsert(commentVO vo);
-   		
+   
+   @Select("select * from dic_tbl")
+   public List<muscleVO> search();
    
    
    

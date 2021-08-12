@@ -1,10 +1,10 @@
 //dom
-const recordButton = document.querySelector(".record-button");
-const stopButton = document.querySelector(".stop-button");
-const playButton = document.querySelector(".play-button");
-const downloadButton = document.querySelector(".download-button");
-const previewPlayer = document.querySelector("#preview");
-const recordingPlayer = document.querySelector("#recording"); 
+const recordButton = document.querySelector(".record-button");         //녹화
+const stopButton = document.querySelector(".stop-button");            //중지
+const playButton = document.querySelector(".play-button");            //녹화보기X
+const downloadButton = document.querySelector(".download-button");   //다운로드
+const previewPlayer = document.querySelector("#preview");        //촬영
+const recordingPlayer = document.querySelector("#recording");   //미리보기(카메라띄워짐)X
 
 let recorder;
 let recordedChunks;
@@ -40,15 +40,23 @@ function stopRecording() {
 
 
 function playRecording() {
-  
   const recordedBlob = new Blob(recordedChunks,{type: "video/mp4"});
   recordingPlayer.src = URL.createObjectURL(recordedBlob);
   recordingPlayer.play();
   downloadButton.href = recordingPlayer.src;
-  downloadButton.download = `coco_${new Date()}.mp4`;
+  downloadButton.download = "coco.mp4";
 }
+
 
 
 recordButton.addEventListener("click",videoStart);
 stopButton.addEventListener("click",stopRecording);
 playButton.addEventListener("click",playRecording);
+
+
+
+
+
+
+
+

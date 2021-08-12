@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="cpath" value="${pageContext.request.contextPath}" />
 
@@ -7,12 +7,12 @@
 <html>
 <head>
 <script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
    
 </script>
 <meta charset="UTF-8">
 <meta name="viewport"
-   content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- SEO Meta Tags -->
 <meta name="description" content="Your description">
@@ -39,23 +39,82 @@
 
 <!-- Styles -->
 <link
-   href="${pageContext.request.contextPath}https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-   rel="stylesheet">
+	href="${pageContext.request.contextPath}https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+	rel="stylesheet">
 <link
-   href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
-   rel="stylesheet">
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
+	rel="stylesheet">
 <link
-   href="${pageContext.request.contextPath}/resources/css/fontawesome-all.min.css"
-   rel="stylesheet">
+	href="${pageContext.request.contextPath}/resources/css/fontawesome-all.min.css"
+	rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/css/swiper.css"
-   rel="stylesheet">
+	rel="stylesheet">
 <link href="${pageContext.request.contextPath}/resources/css/styles.css"
-   rel="stylesheet">
+	rel="stylesheet">
 
 <!-- Favicon  -->
 <link rel="icon"
-   href="${pageContext.request.contextPath}/resources/images/favicon.png">
+	href="${pageContext.request.contextPath}/resources/images/favicon.png">
 <script type="text/javascript">
+
+
+/* $(document).ready(()=>{
+	list();
+	});
+ */
+
+
+	
+	/* function list() {
+	       $.ajax({
+	            url : "${cpath}/musclevideoList.do",   
+	            type : "post",  
+	            success: CallBack,    
+	            error : function() {alert("listerror");
+	            }
+	         });      
+	   } */
+	/* function CallBack(data){
+	    var view = ""
+	    consol.log(data);
+	    $.each(data,(index,obj)=>{
+	    	 view += "<div>";
+			 view += "<br>"
+		 	 view += "<div>"
+			 view += "<h2><strong> "+ obj.word + "</strong></h2>";
+			 view += "</div>";
+			 view += "<br>";
+			 view += "<div>";
+			 view += "<video width='400px' height='250px' controls src="+obj.video+">";
+			 view += "</video>";
+			 view += "</div>";
+			 view += "<br>";
+			 view += "</div>";
+	    });
+	    $("#attach").html(view);
+	} */
+	
+	/* function CallBack(data){
+	 var html="<table class='table'>";
+    html+="<tr>";
+    html+="<td>번호</td>";
+    html+="</tr>";
+    //반복문
+       $.each(data, (index, obj)=>{
+       html+="<tr>";
+        html+="<td>"+obj.word+"</td>";
+        html+="</tr>";
+    });
+    html+="</table>";
+    $("#attach").html(html);
+  }
+	
+	 */
+	
+	
+	
+	
+
 
    function logout() {
       $.ajax({
@@ -90,23 +149,25 @@
    function resultHtml(obj) {
       //alert(JSON.stringify(data));   json 문자열로 출력
       //var html = "<h3>" + obj.word + "</h3>";
-      var html = "<video width='800px' height='500px' autoplay controls src="+obj.video+">";
+      var html = "<video width='500px' height='250px' autoplay controls src="+obj.video+">";
       html += "</video>";
       $("#list").html(html);
    }
+  
+   
 </script>
 <style type="text/css">
 .inner {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
 }
-.button{
 
-    position: relative;
-	margin-bottom: 40px;
-	width: 102px;
-	height: 42px;
+.button {
+	position: relative;
+	margin-bottom: 30px;
+	width: 80px;
+	height: 40px;
 	background: linear-gradient(125deg, #81ecec, #6c5ce7, #81ecec);
 	background-position: left;
 	background-size: 200%;
@@ -116,84 +177,91 @@
 	cursor: pointer;
 	transition: 0.4s;
 	display: inline;
-
 }
 
-
-.inputv{
-  height:40px;
-  width: 400px;
-  border: 1px solid;
-  background:#ffffff;
-
+.inputv {
+	height: 40px;
+	width: 400px;
+	border: 1px solid;
+	background: #ffffff;
 }
-
 </style>
 </head>
 <body>
 
-   <!-- Navigation -->
-   <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-light"
-      aria-label="Main navigation">
-      <div class="container">
+	<!-- Navigation -->
+	<nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-light"
+		aria-label="Main navigation">
+		<div class="container">
 
-         <!-- Image Logo -->
-         <a class="navbar logo-image" href="main.do"><img
-            src="${pageContext.request.contextPath}/resources/images/logogeunjo.PNG"
-            alt="alternative"></a>
+			<!-- Image Logo -->
+			<a class="navbar logo-image" href="main.do"><img
+				src="${pageContext.request.contextPath}/resources/images/logogeunjo.PNG"
+				alt="alternative"></a>
 
-         <!-- Text Logo - Use this if you don't have a graphic logo -->
-         <!-- <a class="navbar-brand logo-text" href="index.html">Yavin</a> -->
+			<!-- Text Logo - Use this if you don't have a graphic logo -->
+			<!-- <a class="navbar-brand logo-text" href="index.html">Yavin</a> -->
 
-         <button class="navbar-toggler p-0 border-0" type="button"
-            id="navbarSideCollapse" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-         </button>
+			<button class="navbar-toggler p-0 border-0" type="button"
+				id="navbarSideCollapse" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-         <div class="navbar-collapse offcanvas-collapse"
-            id="navbarsExampleDefault">
-            <ul class="navbar-nav ms-auto navbar-nav-scroll">
-               <li class="nav-item"><a class="nav-link active" aria-current="page" href="main.do">메인</a></li>
-               <li class="nav-item"><a class="nav-link" href="index.do">수어 음성번역 서비스</a></li>
-               <li class="nav-item"><a class="nav-link" href="musclevideo.do">수어 사전</a></li>
-               <li class="nav-item"><a class="nav-link" href="muscleBoardList.do">자유게시판</a></li>
-            </ul>
-            <c:if test="${userVO == null}">
-               <span class="nav-item">
-                    <a class="btn-outline-sm" href="gologin.do">로그인</a>
-                </span>   
-                </c:if>
-                <c:if test="${userVO != null }">
-                <span class="nav-item">${userVO.name}님 환영합니다.
-                    <a class="btn-outline-sm" href="mypage.do">마이페이지</a>
-                    <button class="btn-outline-sm" onclick="logout()">로그아웃</button>
-                </span>
-                </c:if>
-         </div> 
-      </div>
-   </nav>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-
-
-   <!-- 검색버튼 여기임! -->
-
-   <form method="post" class="inner">
-   <div float="left" margin="30px">
-      <input type="text" name="word" id="word" class="inputv">   
-      <button type="button" onclick="dic()" class="button">검색</button>
-   </div>
-      <div id="list" float="left" margin="30px"></div>
-   </form>
-   
+			<div class="navbar-collapse offcanvas-collapse"
+				id="navbarsExampleDefault">
+				<ul class="navbar-nav ms-auto navbar-nav-scroll">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="main.do">메인</a></li>
+					<li class="nav-item"><a class="nav-link" href="index.do">수어
+							음성번역 서비스</a></li>
+					<li class="nav-item"><a class="nav-link" href="musclevideo.do">수어
+							사전</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="muscleBoardList.do">자유게시판</a></li>
+				</ul>
+				<c:if test="${userVO == null}">
+					<span class="nav-item"> <a class="btn-outline-sm"
+						href="gologin.do">로그인</a>
+					</span>
+				</c:if>
+				<c:if test="${userVO != null }">
+					<span class="nav-item">${userVO.name}님 환영합니다. <a
+						class="btn-outline-sm" href="mypage.do">마이페이지</a>
+						<button class="btn-outline-sm" onclick="logout()">로그아웃</button>
+					</span>
+				</c:if>
+			</div>
+		</div>
+	</nav>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 
 
+	<!-- 검색버튼 여기임! -->
 
+	<form method="post" class="inner">
+
+		<div>
+			<input type="text" name="word" id="word" class="inputv">
+			<button type="button" onclick="dic()" class="button">검색</button>
+			<div id="list"></div> 
+		</div>
+	</form>
+<table class="table" id="attach" >
+            <tr>
+               <td>번호</td>
+            </tr>
+            <c:forEach var="vo" items="${list}" >
+               <tr>
+                  <td>${vo.word}</td>
+               </tr>
+            </c:forEach>
+      </table>
 </body>
 </html>

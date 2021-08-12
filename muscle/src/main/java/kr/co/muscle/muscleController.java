@@ -24,10 +24,10 @@ public class muscleController {
 	@Inject
 	private muscleMapper muscleMapper;
 
-	@RequestMapping("/musclevideo.do")
-	public String musclevideo() { // 백과사전 페이지로 이동
-		return "musclevideo";
-	}
+	/*
+	 * @RequestMapping("/musclevideo.do") public String musclevideo() { // 백과사전 페이지로
+	 * 이동 return "musclevideo"; }
+	 */
 
 	@RequestMapping("/musclevideoAjax.do")
 	public @ResponseBody muscleVO musclevideoAjax(String word) { // 단어검색 후 영상 출력
@@ -155,5 +155,17 @@ public class muscleController {
 		// muscleMapper.commentInsert(vo);
 		return "muscleBoardContent";
 	}
+	
+	@RequestMapping("/musclevideo.do") 
+	public void search(Model model) {
+		System.out.println("컨트롤러들어옴");
+		List<muscleVO> list = muscleMapper.search();
+		System.out.println("뽑긴함?");
+		model.addAttribute("list", list);
+		System.out.println("가져간다");
+		System.out.println(list);
+		
+	}
+	
 
 }

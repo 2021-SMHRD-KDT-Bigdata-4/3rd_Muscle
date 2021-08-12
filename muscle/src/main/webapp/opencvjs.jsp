@@ -31,13 +31,14 @@ function onOpenCvReady(){
 	let src = new cv.Mat(height, width, cv.CV_8UC4); // 8 byte 4 channel
 	let dst = new cv.Mat(height, width, cv.CV_8UC1); // 8 byte 1 channel
 	let cap = new cv.VideoCapture(video);
-	const FPS = 1; // 초당 프레임수 조절 -> 흑백 변환 프레임 레이트
+	const FPS = 30; // 초당 프레임수 조절 -> 흑백 변환 프레임 레이트
 	function processVideo() {
 	    let begin = Date.now();
 	    cap.read(src);
 	    console.log(src.data);
 	    sendData(src.data); // 서버로 데이터 전송
 	    cv.cvtColor(src, dst, cv.COLOR_RGBA2GRAY);
+	    cv.cvtColor(src, dst, cv.COLOR_RGB2BGR);
 	    cv.imshow("canvasOutput", dst);
 	    // schedule next one.
 	    let delay = 1000/FPS - (Date.now() - begin);
