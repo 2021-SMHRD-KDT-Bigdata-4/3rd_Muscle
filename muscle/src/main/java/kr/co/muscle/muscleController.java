@@ -190,7 +190,6 @@ public class muscleController {
       model.addAttribute("list", list);
       System.out.println("가져간다");
       System.out.println(list);
-      
    }
 
 
