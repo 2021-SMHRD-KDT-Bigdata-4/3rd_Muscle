@@ -79,8 +79,8 @@
         <div class="container">
 
             <!-- Image Logo -->
-            <a class="navbar logo-image" href="main.do"><img src="${pageContext.request.contextPath}/resources/images/logogeunjo.PNG" alt="alternative"></a> 
-   
+            <a class="navbar-brand logo-image" href="test.do"><img src="${pageContext.request.contextPath}/resources/images/logo.svg" alt="alternative"></a> 
+
             <!-- Text Logo - Use this if you don't have a graphic logo -->
             <!-- <a class="navbar-brand logo-text" href="index.html">Yavin</a> -->
 
@@ -91,30 +91,52 @@
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ms-auto navbar-nav-scroll">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="main.do">메인</a>
+                        <a class="nav-link active" aria-current="page" href="test.do">메인</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.do">수어 음성번역 서비스</a>
+                    <c:if test="${userVO == null}">
+                  <li class="nav-item"><a class="nav-link" href="gologin.do"  id="clickButton1">수어 음성번역 서비스</a></li>
+               </c:if>
+               
+               <c:if test="${userVO != null}">
+                  <li class="nav-item"><a class="nav-link" href="test.do#details">수어 음성번역 서비스</a></li>
+               </c:if>
+               
+               <li class="nav-item"><a class="nav-link" href="test.do#services">수어 사전</a></li>
+            
+            <c:if test="${userVO == null}">
+                  <li class="nav-item"><a class="nav-link" href="gologin.do" id="clickButton">자유게시판</a></li>
+               </c:if>
+               <c:if test="${userVO != null}">
+                  <li class="nav-item"><a class="nav-link" href="test.do#projects" onclick="board()">자유게시판</a></li>
+               </c:if>
+                <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Drop</a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                            <li><a class="dropdown-item" href="#details">수어음성번역</a></li>
+                            <li><div class="dropdown-divider"></div></li>
+                            <li><a class="dropdown-item" href="#services">수어사전</a></li>
+                            <li><div class="dropdown-divider"></div></li>
+                            <li><a class="dropdown-item" href="#projects" href="${cpath}/muscleBoardList.do">자유게시판</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="musclevideo.do">수어 사전</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="muscleBoardList.do">자유게시판</a>
-                    </li>
-                </ul>
-                <c:if test="${userVO == null}">
-               <span class="nav-item">
-                    <a class="btn-outline-sm" onclick="goLogin()">로그인</a>
-                </span>   
-                </c:if>
-                <c:if test="${userVO != null }">
-                <span class="nav-item">
-                   ${userVO.name}님 환영합니다.
-                    <a class="btn-outline-sm" href="mypage.do">마이페이지</a>
-                    <button class="btn-outline-sm" onclick="logout()">로그아웃</button>
-                </span>
-                </c:if>
+            </ul>
+            <c:if test="${userVO == null}">
+               <span class="nav-item"> <a class="btn-outline-sm"
+                  href="gologin.do">로그인</a>
+               </span>
+            </c:if>
+            <c:if test="${userVO != null }">
+               <span class="nav-item"> ${userVO.name}님 환영합니다. <a
+                  class="btn-outline-sm" href="mypage.do">마이페이지</a>
+                  <button class="btn-outline-sm" onclick="logout()">로그아웃</button>
+               </span>
+            </c:if>
+                    
+                    
+                    
+                    
+                    
+             
             </div> <!-- end of navbar-collapse -->
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
