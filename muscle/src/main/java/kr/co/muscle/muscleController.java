@@ -73,11 +73,13 @@ public class muscleController {
    }
     
    @GetMapping("/muscleBoardList.do") // 핸들러 매핑 ,jsp이름이 된다.그래서 jsp이름과 똑같이 해야됨
-   public void boardList(Model model) {// 리턴문을 쓰지 않아도 저이름으로 된 jsp로 찾아간다.void타입으로 해도됨!
+   public String boardList(Model model) {// 리턴문을 쓰지 않아도 저이름으로 된 jsp로 찾아간다.void타입으로 해도됨!
       // TO-DO
+	   System.out.println("리스트컨트롤러드러옴");
       List<userVO> list = muscleMapper.boardList();
       model.addAttribute("list", list); // 객체바인딩 -> ModelAndView -> Model
-      // return "boardList"; // -->ViewResolver-->/WEB-INF/views/boardList.jsp
+      System.out.println(list); 
+      return "login"; // -->ViewResolver-->/WEB-INF/views/boardList.jsp
    }
     
    // 수어 음성번역 서비스 페이지로 이동

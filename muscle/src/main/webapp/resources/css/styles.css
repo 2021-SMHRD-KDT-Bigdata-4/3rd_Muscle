@@ -588,6 +588,8 @@ a:hover {
    width: 200px;
    padding: 1rem;
    justify-content: space-evenly;
+   margin-right: 180px;
+   margin-left: 180px;
 }
 
 .video-item>h2 {

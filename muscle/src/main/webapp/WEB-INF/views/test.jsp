@@ -70,10 +70,97 @@
 }	
 </style>
 <!-- login css-->  
+
+<!-- 글쓰기 들어가기 -->
    <script type="text/javascript">
+   // 로그인...
+   $(document).ready(()=>{
+       <c:if test="${ !empty sessionScope.uservo}">    
+          alert("${sessionScope.uservo}");
+          <c:remove var="uservo"/>    //속성을 삭제할때 쓰는것 setAttribute가 되어있는 변수mag를 삭제
+       </c:if>
+     });   
+   
+   
+   
+   
+   
    function muscleBoardForm() {
 	   location.href = "${cpath}/muscleBoardForm.do";
 	}
+   
+   
+ //수어사전!
+   function dic() {  
+	      var word = $("#word").val();
+	      $.ajax({
+	         url : "${cpath}/musclevideoAjax.do",
+	         type : "get",
+	         data : {"word" : word},
+	         dataType : "json",
+	         success : resultHtml,
+	         error : function(error) {
+	            alert("에러다잉?");
+	         }
+	      });
+	   }
+	   // dic()함수가 성공하면 html을 띄워줌
+	   function resultHtml(obj) {
+	      //alert(JSON.stringify(data));   json 문자열로 출력
+	      //var html = "<h3>" + obj.word + "</h3>";
+	      var html = "<video width='500px' height='300px' autoplay controls src="+obj.video+">";
+	      html += "</video>";
+	      $("#list").html(html);
+	   }
+	   //로그아웃
+	   function logout() {
+		      $.ajax({
+		         url : "${cpath}/logout.do",
+		         type:"get",
+		         success : function(){
+		            alert("로그아웃되었습니다.")
+		            location.href="${cpath}/test.do";
+		         },
+		         error : function(){alert("error");}
+		      });
+		   }
+	   
+	  function board() {
+		      $.ajax({
+		         url : "${cpath}/muscleBoardList.do",
+		         type : "get",
+		         dataType : "json",
+		         success : b,
+		         error : function(error) {
+		            alert("에러다잉?");
+		         }
+		      });
+		   }
+	   
+	   function b(data) { //data =>[{ }, { }....]
+		    //alert(data);
+		      var html="<table class='table'>";
+		       html+="<tr>";
+		       html+="<td>번호</td>";
+		       html+="<td>제목</td>";
+		       html+="<td>작성자</td>";
+		       html+="</tr>";
+		       //반복문
+		          $.each(data, (index, obj)=>{
+		          html+="<tr>";
+		           html+="<td id='idx_b"+index+"'>"+obj.idx_b+"</td>";
+		           //html+="<td>"+obj.idx+"</td>";
+		           html+="<td>"+obj.title+"</td>";
+		           html+="<td>"+obj.title+"</td>";
+		           html+="<td>"+obj.id+"</td>";
+		           //html+="<td><button class='btn btn-warning btn-sm' onclick='delbtn("+index+")'>삭제(Ajax)</button></td>";
+		           //html+="<td><button class='btn btn-warning btn-sm' onclick='delbtn("+obj.idx+")'>삭제(Ajax)</button></td>";
+		           html+="</tr>";
+		       });
+		       html+="</table>";
+		       $("#bb").html(html);
+		     } 
+	   
    </script>
 </head>
 <body>
@@ -83,7 +170,7 @@
         <div class="container">
 
             <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.html"><img src="${pageContext.request.contextPath}/resources/images/logo.svg" alt="alternative"></a> 
+            <a class="navbar-brand logo-image" href="#header"><img src="${pageContext.request.contextPath}/resources/images/logo.svg" alt="alternative"></a> 
 
             <!-- Text Logo - Use this if you don't have a graphic logo -->
             <!-- <a class="navbar-brand logo-text" href="index.html">Yavin</a> -->
@@ -97,29 +184,50 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#header">메인</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#details">수어음성번역서비스</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">수어사전</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects">자유게시판</a>
-                    </li>
-                    <li class="nav-item dropdown">
+                    <c:if test="${userVO == null}">
+                  <li class="nav-item"><a class="nav-link" href="gologin.do"  id="clickButton1">수어 음성번역 서비스</a></li>
+               </c:if>
+               
+               <c:if test="${userVO != null}">
+                  <li class="nav-item"><a class="nav-link" href="#details">수어 음성번역 서비스</a></li>
+               </c:if>
+               
+               <li class="nav-item"><a class="nav-link" href="#services">수어 사전</a></li>
+            
+            <c:if test="${userVO == null}">
+                  <li class="nav-item"><a class="nav-link" href="gologin.do" id="clickButton">자유게시판</a></li>
+               </c:if>
+               <c:if test="${userVO != null}">
+                  <li class="nav-item"><a class="nav-link" href="#projects" onclick="board()">자유게시판</a></li>
+               </c:if>
+                <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Drop</a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown01">
-                            <li><a class="dropdown-item" href="article.html">Article Details</a></li>
+                            <li><a class="dropdown-item" href="#details">수어음성번역</a></li>
                             <li><div class="dropdown-divider"></div></li>
-                            <li><a class="dropdown-item" href="terms.html">Terms Conditions</a></li>
+                            <li><a class="dropdown-item" href="#services">수어사전</a></li>
                             <li><div class="dropdown-divider"></div></li>
-                            <li><a class="dropdown-item" href="privacy.html">Privacy Policy</a></li>
+                            <li><a class="dropdown-item" href="#projects" href="${cpath}/muscleBoardList.do">자유게시판</a></li>
                         </ul>
                     </li>
-                </ul>
-                <span class="nav-item">
-                    <a class="btn-outline-sm" href="gologin.do">로그인</a>
-                </span>
+            </ul>
+            <c:if test="${userVO == null}">
+               <span class="nav-item"> <a class="btn-outline-sm"
+                  href="gologin.do">로그인</a>
+               </span>
+            </c:if>
+            <c:if test="${userVO != null }">
+               <span class="nav-item"> ${userVO.name}님 환영합니다. <a
+                  class="btn-outline-sm" href="mypage.do">마이페이지</a>
+                  <button class="btn-outline-sm" onclick="logout()">로그아웃</button>
+               </span>
+            </c:if>
+                    
+                    
+                    
+                    
+                    
+             
             </div> <!-- end of navbar-collapse -->
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
@@ -170,13 +278,13 @@
       </div>
    </div>
    <div class="wrapper2">
-      <div class="video-container2" style="margin-right: 190;">
+      <div class="video-container2" style="display: flex; width: 200px; padding: 1rem;justify-content: space-evenly;margin-right: 180px;" >
          <button class="record-button" onclick="a()" style="">녹화</button>
          <button class="stop-button">중지</button>
       </div>
-      <div class="video-container2" style="margin-left: 190;">
+      <div class="video-container2" style="display: flex; width: 200px; padding: 1rem; justify-content: space-evenly; margin-left: 180px;">
          <button class="play-button">확인</button>
-         <button><a class="download-button"  style="text-decoration-line : none;" >보내기</a></button>
+         <button style="display: inline-block; padding: 1rem 1.5rem 1rem 1.5rem;  border: 1px solid #cc2973;  border-radius: 30px;  background-color: transparent;color: #cc2973; font-weight: 600; font-size: 0.875rem;  line-height: 0;  text-decoration: none; transition: all 0.2s;"><a class="download-button" >보내기</a></button>
       </div>
    </div>
    
@@ -193,8 +301,10 @@
          <input type="text" name="word" id="word" style=" border-radius: 28px; height: 40px; width: 400px; background: #ffffff;">
          <a onclick="dic()" class="btn-outline-sm">
     검색</a>
-         <div id="list"></div>
-      </div>
+    </div>
+    
+         <div id="list" style="margin-top: 100px;"></div>
+      
    </form>
    </div>
 </div>
@@ -205,8 +315,8 @@
         <div class="container">
       <h4>자유게시판</h4>
       <br>
-      <table class="table" id="list"  >
-         <thead>
+      <table class="table" id = "bb">
+          <thead>
             <tr>
                <th>번호</th>
                <th>제목</th>
@@ -214,15 +324,16 @@
             </tr>
          </thead>
          <tbody>
-            <%-- <c:forEach var="vo" items="${list}" >
+            <c:forEach var="vo" items="${list}">
                <tr>
+                      ${alert(vo)}
                   <td>${vo.idx_b}</td>
                   <td><a href="${cpath}/commentListAjax.do?idx_b=${vo.idx_b}">${vo.title}</a></td>
                   <td>${vo.id}</td>
                </tr>
-            </c:forEach> --%>
+            </c:forEach> 
             
-               <tr>
+              <!--   <tr>
                   <td>1</td>
                   <td>근조직</td>
                   <td>coco</td>
@@ -244,8 +355,8 @@
                   <td>5</td>
                   <td>근조직</td>
                   <td>coco</td>
-               </tr>
-            
+               </tr> -->
+           
          </tbody>
       </table>
       <br>
@@ -358,4 +469,13 @@
     <script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script> <!-- Custom scripts -->
     <script src="${pageContext.request.contextPath}/resources/js/camera.js"></script>
 </body>
+<script type="text/javascript">
+let msg = "";
+msg = ${msg};
+console.log(msg);
+if(msg != "none") {
+   alert(msg);
+   location.reload;
+}
+</script>
 </html>
