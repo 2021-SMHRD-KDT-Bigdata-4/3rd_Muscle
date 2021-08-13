@@ -13,63 +13,63 @@
     <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/css/fontawesome-all.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/css/swiper.css" rel="stylesheet">
-	<link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet">
-	
+   <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet">
+   
     <!-- 스크립트 부분 -->
     <script type="text/javascript">
     function goMain() {
-    	location.href = "${cpath}/main.do";
-	}
+       location.href = "${cpath}/main.do";
+   }
     function goLogin() {
-    	location.href = "${cpath}/gologin.do";
-	}
+       location.href = "${cpath}/gologin.do";
+   }
     function goboard() {
-    	location.href = "${cpath}/muscleBoardList.do";
-	}
+       location.href = "${cpath}/muscleBoardList.do";
+   }
     function goMypage() {
-    	location.href = "${cpath}/gomypage.do";
-	}
+       location.href = "${cpath}/gomypage.do";
+   }
     function logout() {
- 	   $.ajax({
- 	      url : "${cpath}/logout.do",
- 	      type:"get",
- 	      success : function(){
- 	         alert("로그아웃되었습니다.")
- 	         location.href="${cpath}/main.do";
- 	      },
- 	      error : function(){alert("error");}
- 	   });
- 	}
+       $.ajax({
+          url : "${cpath}/logout.do",
+          type:"get",
+          success : function(){
+             alert("로그아웃되었습니다.")
+             location.href="${cpath}/main.do";
+          },
+          error : function(){alert("error");}
+       });
+    }
   
     </script>
      <style type="text/css">
      .button{
      background-color:#e8ede9;
-	 border-radius:28px;
-	 border:1px solid #eff7f0;
-	 display:inline-block;
-	 cursor:pointer;
-	 color:#0d0c0d;
-	 font-family:Arial;
-	 font-size:16px;
-	 padding:11px 20px;
-	 text-decoration:none;
-	 text-shadow:0px 1px 0px #2f6627;
+    border-radius:28px;
+    border:1px solid #eff7f0;
+    display:inline-block;
+    cursor:pointer;
+    color:#0d0c0d;
+    font-family:Arial;
+    font-size:16px;
+    padding:11px 20px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #2f6627;
 
 
 }
 .button:hover {
-	background-color:#f1f7ed;
+   background-color:#f1f7ed;
 }
 .button:active {
-	position:relative;
-	top:1px;
+   position:relative;
+   top:1px;
 }
      
      </style>
-	
-	
-	<!-- Favicon  -->
+   
+   
+   <!-- Favicon  -->
     <link rel="icon" href="${pageContext.request.contextPath}/resources/images/favicon.png">
 </head>
 <body>
@@ -80,7 +80,7 @@
 
             <!-- Image Logo -->
             <a class="navbar logo-image" href="main.do"><img src="${pageContext.request.contextPath}/resources/images/logogeunjo.PNG" alt="alternative"></a> 
-	
+   
             <!-- Text Logo - Use this if you don't have a graphic logo -->
             <!-- <a class="navbar-brand logo-text" href="index.html">Yavin</a> -->
 
@@ -104,17 +104,17 @@
                     </li>
                 </ul>
                 <c:if test="${userVO == null}">
-	            <span class="nav-item">
+               <span class="nav-item">
                     <a class="btn-outline-sm" onclick="goLogin()">로그인</a>
                 </span>   
-         	    </c:if>
-         	    <c:if test="${userVO != null }">
-         	    <span class="nav-item">
-         	    	${userVO.name}님 환영합니다.
+                </c:if>
+                <c:if test="${userVO != null }">
+                <span class="nav-item">
+                   ${userVO.name}님 환영합니다.
                     <a class="btn-outline-sm" href="mypage.do">마이페이지</a>
                     <button class="btn-outline-sm" onclick="logout()">로그아웃</button>
                 </span>
-         	    </c:if>
+                </c:if>
             </div> <!-- end of navbar-collapse -->
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
@@ -125,50 +125,50 @@
     <br>
     <br>
     <br>
-	<article>
+   <article>
 
-		<div class="container" role="main">
+      <div class="container" role="main">
 
-			<h4>자유게시판 글쓰기</h4>
+         <h4>자유게시판 글쓰기</h4>
 
                 <form id="frm" method="post" action="${cpath}/boardInsert.do">
-				<div class="mb-3">
-					<label for="title">제목</label>
+            <div class="mb-3">
+               <label for="title">제목</label>
 
 
-					<input type="text" class="form-control" name="title" name="title"  placeholder="제목을 입력해 주세요">
+               <input type="text" class="form-control" name="title" name="title"  placeholder="제목을 입력해 주세요">
 
-				</div>
-				
+            </div>
+            
 
-				
+            
 
-				<div class="mb-3">
+            <div class="mb-3">
 
-					<label for="content">내용</label>
+               <label for="content">내용</label>
 
 
-					<textarea class="form-control" rows="5" name="content"  placeholder="내용을 입력해 주세요" ></textarea>
+               <textarea class="form-control" rows="5" name="content"  placeholder="내용을 입력해 주세요" ></textarea>
 
-				</div>
+            </div>
 
-				<div class="mb-3">
-					<label for="reg_id">작성자</label>
-				    <textarea class="form-control" rows="1" readonly="readonly" name="id">${userVO.id}</textarea>
-				</div>
+            <div class="mb-3">
+               <label for="reg_id">작성자</label>
+                <textarea class="form-control" rows="1" readonly="readonly" name="id">${userVO.id}</textarea>
+            </div>
 
-				
-			<div>
-				<input type="submit" class="button" value="저장"> 
+            
+         <div>
+            <input type="submit" class="button" value="저장"> 
                 <button type="reset" class="button">글쓰기 취소</button>
-			</div>
-		</form>
-			
-			
+         </div>
+      </form>
+         
+         
 
-		</div>
+      </div>
 
-	</article>
+   </article>
 
 </body>
 

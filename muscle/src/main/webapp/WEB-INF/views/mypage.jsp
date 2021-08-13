@@ -13,10 +13,10 @@
     <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/css/fontawesome-all.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/css/swiper.css" rel="stylesheet">
-	<link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet">
-	
-	
-	
+   <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet">
+   
+   
+   
 <style type="text/css">
     *{
   margin: 0px;
@@ -106,10 +106,10 @@
   text-align: center;
 }
 .bt_mypage_up {
-	background-color: skyblue;
+   background-color: skyblue;
 }
 .btn_mypage_del{
-	background-color: orange;
+   background-color: orange;
 }
     
     </style>
@@ -135,7 +135,7 @@
 
             <!-- Image Logo -->
             <a class="navbar logo-image" href="main.do"><img src="${pageContext.request.contextPath}/resources/images/logogeunjo.PNG" alt="alternative"></a> 
-	
+   
             <!-- Text Logo - Use this if you don't have a graphic logo -->
             <!-- <a class="navbar-brand logo-text" href="index.html">Yavin</a> -->
 
@@ -159,17 +159,17 @@
                     </li>
                 </ul>
                 <c:if test="${userVO == null}">
-	            <span class="nav-item">
+               <span class="nav-item">
                     <a class="btn-outline-sm" href="gologin.do">로그인</a>
                 </span>   
-         	    </c:if>
-         	    <c:if test="${userVO != null }">
-         	    <span class="nav-item">
-         	    	${userVO.name}님 환영합니다.
+                </c:if>
+                <c:if test="${userVO != null }">
+                <span class="nav-item">
+                   ${userVO.name}님 환영합니다.
                     <a class="btn-outline-sm" href="mypage.do">마이페이지</a>
                     <button class="btn-outline-sm" onclick="logout()">로그아웃</button>
                 </span>
-         	    </c:if>
+                </c:if>
             </div> <!-- end of navbar-collapse -->
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
@@ -194,52 +194,52 @@
        <button type="submit" class="btn">회원정보 수정</button>
        <button type="reset" class="btn">취소</button>
       </c:if>
-      	<div class="column">
-      	<br>
-								<!-- 게시판 작성 내역 -->
-								<div class="sh_group">
-									<div class="sh_header">
-										<h5>${sessionScope.userVO.name}님이 자유게시판에 작성한 내용</h5>
-									</div>
-									<br>
-									<div class="mypage_content">
-										<dl class="sh_lst2">
-											<table>
-												<tr>
-												<th>선택</th>
-													<th>번호</th>
-													<th>제목</th>
-													<th>작성자</th>
-													<th>게시일</th>
-													<th>조회수</th>
-												</tr>
-												<tr>
-												    <th><input type="checkbox" /></th>
-													<th>1</th>
-													<td>안녕하세요</td>
-													<td>관리자</td>
-													<td>2021-08-07</td>
-													<td>3</td>
-												</tr>
-												<tr>
-													<th><input type="checkbox" /></th>
-													<th>2</th>
-													<td>수어에 대해서 알고싶어요</td>
-													<td>관리자</td>
-													<td>2021-08-08</td>
-													<td>7</td>
-												</tr>
-											</table>
-										</dl>
-									</div>
-									<div>
-										<p class="btn_area_btm1">
-											<button type="button" onclick="reviewUpdateFn()" value="수정"  class="bt_mypage_up">수정</button>
-											<button type="button" onclick="reviewDeleteFn()" class="btn_mypage_del">삭제</button>
-										</p>
-									</div>
-								</div>
-							</div>
+         <div class="column">
+         <br>
+                        <!-- 게시판 작성 내역 -->
+                        <div class="sh_group">
+                           <div class="sh_header">
+                              <h5>${sessionScope.userVO.name}님이 자유게시판에 작성한 내용</h5>
+                           </div>
+                           <br>
+                           <div class="mypage_content">
+                              <dl class="sh_lst2">
+                                 <table>
+                                    <tr>
+                                    <th>선택</th>
+                                       <th>번호</th>
+                                       <th>제목</th>
+                                       <th>작성자</th>
+                                       <th>게시일</th>
+                                       <th>조회수</th>
+                                    </tr>
+                                    <tr>
+                                        <th><input type="checkbox" /></th>
+                                       <th>1</th>
+                                       <td>안녕하세요</td>
+                                       <td>관리자</td>
+                                       <td>2021-08-07</td>
+                                       <td>3</td>
+                                    </tr>
+                                    <tr>
+                                       <th><input type="checkbox" /></th>
+                                       <th>2</th>
+                                       <td>수어에 대해서 알고싶어요</td>
+                                       <td>관리자</td>
+                                       <td>2021-08-08</td>
+                                       <td>7</td>
+                                    </tr>
+                                 </table>
+                              </dl>
+                           </div>
+                           <div>
+                              <p class="btn_area_btm1">
+                                 <button type="button" onclick="reviewUpdateFn()" value="수정"  class="bt_mypage_up">수정</button>
+                                 <button type="button" onclick="reviewDeleteFn()" class="btn_mypage_del">삭제</button>
+                              </p>
+                           </div>
+                        </div>
+                     </div>
       </form>
        
       

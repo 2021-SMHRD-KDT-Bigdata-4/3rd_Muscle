@@ -17,7 +17,7 @@
    <!-- 회원가입 기능 -->
    <insert id="joinfunction">
       insert into tbl_user(id, pw, name, tel)
-		values(#{id},#{pw},#{name},#{tel})
+      values(#{id},#{pw},#{name},#{tel})
    </insert>
    
    

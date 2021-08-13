@@ -99,7 +99,7 @@
                   aria-current="page" href="main.do">메인</a></li>
                   
                <c:if test="${userVO == null}">
-                  <li class="nav-item"><a class="nav-link" href="main.do"  id="clickButton1">수어 음성번역 서비스</a></li>
+                  <li class="nav-item"><a class="nav-link" href="gologin.do"  id="clickButton1">수어 음성번역 서비스</a></li>
                </c:if>
                
                <c:if test="${userVO != null}">
@@ -109,7 +109,7 @@
                <li class="nav-item"><a class="nav-link" href="musclevideo.do">수어 사전</a></li>
             
             <c:if test="${userVO == null}">
-                  <li class="nav-item"><a class="nav-link" href="main.do" id="clickButton">자유게시판</a></li>
+                  <li class="nav-item"><a class="nav-link" href="gologin.do" id="clickButton">자유게시판</a></li>
                </c:if>
                <c:if test="${userVO != null}">
                   <li class="nav-item"><a class="nav-link" href="muscleBoardList.do" >자유게시판</a></li>

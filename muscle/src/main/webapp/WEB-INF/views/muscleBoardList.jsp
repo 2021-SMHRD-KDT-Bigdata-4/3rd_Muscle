@@ -29,7 +29,7 @@ function logout() {
 
 
 function muscleBoardForm() {
-	location.href = "${cpath}/muscleBoardForm.do";
+   location.href = "${cpath}/muscleBoardForm.do";
 }
 
   
@@ -71,26 +71,26 @@ function muscleBoardForm() {
 .button{
    background-color:#e8ede9;
     height: 54px;
-	border-radius:28px;
-	border:1px solid #eff7f0;
-	display:inline-block;
-	cursor:pointer;
-	color:#0d0c0d;
-	font-family:Arial;
-	font-size:16px;
-	padding:11px 20px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #2f6627;
+   border-radius:28px;
+   border:1px solid #eff7f0;
+   display:inline-block;
+   cursor:pointer;
+   color:#0d0c0d;
+   font-family:Arial;
+   font-size:16px;
+   padding:11px 20px;
+   text-decoration:none;
+   text-shadow:0px 1px 0px #2f6627;
 
 
 }
 .button:hover {
-	background-color:#f1f7ed;
+   background-color:#f1f7ed;
 }
 .button:active {
-	position:relative;
-	top:1px;}
-	
+   position:relative;
+   top:1px;}
+   
 .table{
   border: 1px solid #CCC;
   font-size: 13px;

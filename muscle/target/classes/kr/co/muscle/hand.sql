@@ -93,20 +93,18 @@ commit;
 TRUNCATE dic_tbl;
 -- C:\Users\21SMT64\Desktop\004.수어_영상_sample\원시데이터
 -- 백과사전테이블 데이터 삽입
-insert into dic_tbl(word, video) values('왼쪽', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0001_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('오른쪽', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0003_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('여기', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0005_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('저기', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0007_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('운전', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0009_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('빨리 가다', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0012_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('급하다', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0015_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('약속 늦다', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0017_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('나', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0019_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('당신', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0021_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('그 남자 맞다', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0024_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('잘못 말해주다', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0026_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('위험', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0028_REAL01_F.mp4');
-insert into dic_tbl(word, video) values('항상', 'http://127.0.0.1:8081/muscle/views/NIA_SL_SEN0030_REAL01_F.mp4');
+insert into dic_tbl(word, video) values('연기', 'http://127.0.0.1:8081/muscle/views/1.mp4');
+insert into dic_tbl(word, video) values('119', 'http://127.0.0.1:8081/muscle/views/3.mp4');
+insert into dic_tbl(word, video) values('왼쪽', 'http://127.0.0.1:8081/muscle/views/4.mp4');
+insert into dic_tbl(word, video) values('딸', 'http://127.0.0.1:8081/muscle/views/5.mp4');
+insert into dic_tbl(word, video) values('오른쪽', 'http://127.0.0.1:8081/muscle/views/6.mp4');
+insert into dic_tbl(word, video) values('경찰차', 'http://127.0.0.1:8081/muscle/views/7.mp4');
+insert into dic_tbl(word, video) values('여학생', 'http://127.0.0.1:8081/muscle/views/9.mp4');
+insert into dic_tbl(word, video) values('여기', 'http://127.0.0.1:8081/muscle/views/11.mp4');
+insert into dic_tbl(word, video) values('저기', 'http://127.0.0.1:8081/muscle/views/13.mp4');
+insert into dic_tbl(word, video) values('운전', 'http://127.0.0.1:8081/muscle/views/14.mp4');
+insert into dic_tbl(word, video) values('항상', 'http://127.0.0.1:8081/muscle/views/35.mp4');
+
 
 
 select * from dic_tbl where word like '%못%'

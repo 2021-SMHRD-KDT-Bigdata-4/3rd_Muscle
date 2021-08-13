@@ -106,67 +106,67 @@ body {
     <!-- 스크립트 부분 -->
     <script type="text/javascript">
     $(document).ready(function(){
-		// 취소
-		$(".cencle").on("click", function(){
-			
-			location.href = "/login.do";
-					    
-		})
-	
-		$("#submit").on("click", function(){
-			if($("#id").val()==""){
-				alert("아이디를 입력해주세요.");
-				$("#id").focus();
-				return false;
-			}
-			if($("#pw").val()==""){
-				alert("비밀번호를 입력해주세요.");
-				$("#pw").focus();
-				return false;
-			}
-			if($("#name").val()==""){
-				alert("성명을 입력해주세요.");
-				$("#name").focus();
-				return false;
-			}
-			if($("#tel").val()==""){
-				alert("전화번호를 입력해주세요.");
-				$("#tel").focus();
-				return false;
-			}
-			   var p = document.getElementById('pw').value;
-		       var p1 = document.getElementById('pwconfirm').value;
-		       
-		       if( p != p1 ) {
-		            alert("비밀번호가 일치하지 않습니다.");
-		            return false;
-		          } else{
-		             var formData = $("#join").serialize();
-		            $.ajax({
-		               url : "join.do",
-		               type : "post",
-		               data : formData,
-		               success : function(data) {
-		                  //alert(data);
-		                  if (data == "NO") {
-		                     alert("회원가입에 실패했습니다.");
-		                  } else {
-		                     alert("회원가입에 성공했습니다.");
-		                     location.href = "gologin.do"; // 메인화면으로...
-		                  }
-		               },
-		               error : function() {
-		                  alert("error");
-		               }
-		            
-		            });
-		            return true;
-		          }
-		});
-		
-			
-		
-	})
+      // 취소
+      $(".cencle").on("click", function(){
+         
+         location.href = "/login.do";
+                   
+      })
+   
+      $("#submit").on("click", function(){
+         if($("#id").val()==""){
+            alert("아이디를 입력해주세요.");
+            $("#id").focus();
+            return false;
+         }
+         if($("#pw").val()==""){
+            alert("비밀번호를 입력해주세요.");
+            $("#pw").focus();
+            return false;
+         }
+         if($("#name").val()==""){
+            alert("성명을 입력해주세요.");
+            $("#name").focus();
+            return false;
+         }
+         if($("#tel").val()==""){
+            alert("전화번호를 입력해주세요.");
+            $("#tel").focus();
+            return false;
+         }
+            var p = document.getElementById('pw').value;
+             var p1 = document.getElementById('pwconfirm').value;
+             
+             if( p != p1 ) {
+                  alert("비밀번호가 일치하지 않습니다.");
+                  return false;
+                } else{
+                   var formData = $("#join").serialize();
+                  $.ajax({
+                     url : "join.do",
+                     type : "post",
+                     data : formData,
+                     success : function(data) {
+                        //alert(data);
+                        if (data == "NO") {
+                           alert("회원가입에 실패했습니다.");
+                        } else {
+                           alert("회원가입에 성공했습니다.");
+                           location.href = "gologin.do"; // 메인화면으로...
+                        }
+                     },
+                     error : function() {
+                        alert("error");
+                     }
+                  
+                  });
+                  return true;
+                }
+      });
+      
+         
+      
+   })
     </script>
    <!-- Favicon  -->
     <link rel="icon" href="${pageContext.request.contextPath}/resources/images/favicon.png">

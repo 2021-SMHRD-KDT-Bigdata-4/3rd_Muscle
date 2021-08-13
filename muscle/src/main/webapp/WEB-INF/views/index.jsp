@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="cpath" value="/muscle" />
 <html>
@@ -14,52 +14,52 @@
  <link href="/muscle/resources/css/bootstrap.min.css" rel="stylesheet">
 <style type="text/css">
 /* * {
-	margin: 0;
-	padding: 0;
+   margin: 0;
+   padding: 0;
 } */
 
 html, body {
-	width: 100%;
-	height: 100%;
+   width: 100%;
+   height: 100%;
 }
 
 .wrapper1 {
-	height: 70%;
-	overflow: hidden;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
+   height: 70%;
+   overflow: hidden;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
 }
 .wrapper2 {
-	overflow: hidden;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
+   overflow: hidden;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
 }
 
 .video-container {
-	display: flex;
-	width: 550px;
-	padding: 1rem;
-	justify-content: space-around;
+   display: flex;
+   width: 550px;
+   padding: 1rem;
+   justify-content: space-around;
 }
 .video-container2 {
-	display: flex;
-	width: 200px;
-	padding: 1rem;
-	justify-content: space-evenly;
+   display: flex;
+   width: 200px;
+   padding: 1rem;
+   justify-content: space-evenly;
 }
 
 .video-item>h2 {
-	text-align: center;
+   text-align: center;
 }
 
 .video-item>video {
-	width: 300px;
-	height: 200px;
-	border: 1px solid #333;
+   width: 300px;
+   height: 200px;
+   border: 1px solid #333;
 }
 
 button{
@@ -74,7 +74,7 @@ button{
     padding:11px 20px;
     text-decoration:none;
     text-shadow:0px 1px 0px #2f6627;
-	
+   
 
 }
 button:hover {
@@ -162,35 +162,35 @@ button:active {
    </nav>
 
 
-	<div class="wrapper1">
-		<div class="video-container">
-			<div class="video-item">
-				<h2>촬영</h2>
-				<video autoplay muted id="preview"></video>
-			</div>
-		</div>
-		
-		<div class="video-container">
-			<div class="video-item">
-				<h2>녹화확인</h2>
-				<video id="recording"></video>
-			</div>
-		</div>
-	</div>
-	<div class="wrapper2">
-		<div class="video-container2" style="margin-right: 190;">
-			<button class="record-button" onclick="a()">녹화</button>
-			<button class="stop-button">중지</button>
-		</div>
-		<div class="video-container2" style="margin-left: 190;">
-			<button class="play-button">확인</button>
-			<button><a class="download-button" name="coco" value="coco.mp4" style="text-decoration-line : none;"
-				>보내기</a></button>
-		</div>
-	</div>
-	
-	<script src="/muscle/resources/js/camera.js"></script>
-	<!-- <script src="script.js"></script> -->
+   <div class="wrapper1">
+      <div class="video-container">
+         <div class="video-item">
+            <h2>촬영</h2>
+            <video autoplay muted id="preview"></video>
+         </div>
+      </div>
+      
+      <div class="video-container">
+         <div class="video-item">
+            <h2>녹화확인</h2>
+            <video id="recording"></video>
+         </div>
+      </div>
+   </div>
+   <div class="wrapper2">
+      <div class="video-container2" style="margin-right: 190;">
+         <button class="record-button" onclick="a()">녹화</button>
+         <button class="stop-button">중지</button>
+      </div>
+      <div class="video-container2" style="margin-left: 190;">
+         <button class="play-button">확인</button>
+         <button><a class="download-button" name="coco" value="coco.mp4" style="text-decoration-line : none;"
+            >보내기</a></button>
+      </div>
+   </div>
+   
+   <script src="/muscle/resources/js/camera.js"></script>
+   <!-- <script src="script.js"></script> -->
 
 </body>
 </html>
