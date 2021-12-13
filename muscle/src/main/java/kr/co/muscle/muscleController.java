@@ -190,7 +190,6 @@ public class muscleController {
 	public void search(Model model) {
 		System.out.println("컨트롤러들어옴");
 		List<muscleVO> list = muscleMapper.search();
-		System.out.println("뽑긴함?");
 		model.addAttribute("list", list);
 		System.out.println("가져간다");
 		System.out.println(list);
